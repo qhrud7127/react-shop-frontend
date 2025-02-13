@@ -50,6 +50,7 @@ export type NavItemDataProps = Pick<NavItemStateProps, 'disabled'> & {
   title: string;
   icon?: string | React.ReactNode;
   info?: string[] | React.ReactNode;
+  subheader?: string;
   caption?: string;
   roles?: string[];
   children?: NavItemDataProps[];

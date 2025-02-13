@@ -4,7 +4,6 @@ import { paths } from 'src/routes/paths';
 
 import { CONFIG } from 'src/global-config';
 
-import { Label } from 'src/components/label';
 import { SvgColor } from 'src/components/svg-color';
 
 // ----------------------------------------------------------------------
@@ -49,32 +48,29 @@ export const navData: NavSectionProps['data'] = [
    * Overview
    */
   {
-    subheader: 'Overview',
     items: [
       {
-        title: 'One',
+        title: '베스트',
         path: paths.dashboard.root,
         icon: ICONS.dashboard,
-        info: <Label>v{CONFIG.appVersion}</Label>,
+        // info: <Label>v{CONFIG.appVersion}</Label>,
       },
-      { title: 'Two', path: paths.dashboard.two, icon: ICONS.ecommerce },
-      { title: 'Three', path: paths.dashboard.three, icon: ICONS.analytics },
+      { title: '세일', path: paths.dashboard.two, icon: ICONS.ecommerce },
+      { title: '신상', path: paths.dashboard.three, icon: ICONS.analytics },
+      { title: '추천', path: paths.dashboard.group.root, icon: ICONS.analytics },
+
     ],
   },
-  /**
-   * Management
-   */
   {
-    subheader: 'Management',
     items: [
       {
-        title: 'Group',
+        title: '여성',
         path: paths.dashboard.group.root,
         icon: ICONS.user,
         children: [
-          { title: 'Four', path: paths.dashboard.group.root },
-          { title: 'Five', path: paths.dashboard.group.five },
-          { title: 'Six', path: paths.dashboard.group.six },
+          { title: '의류', path: paths.dashboard.group.root },
+          { title: '가방', path: paths.dashboard.group.five },
+          { title: '잡화', path: paths.dashboard.group.six },
         ],
       },
     ],

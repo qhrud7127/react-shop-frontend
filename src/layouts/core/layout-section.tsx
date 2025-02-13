@@ -1,3 +1,4 @@
+import type {ReactNode, ComponentProps} from "react";
 import type { Theme, SxProps, CSSObject } from '@mui/material/styles';
 
 import { mergeClasses } from 'minimal-shared/utils';
@@ -10,13 +11,13 @@ import { layoutSectionVars } from './css-vars';
 
 // ----------------------------------------------------------------------
 
-export type LayoutSectionProps = React.ComponentProps<'div'> & {
+export type LayoutSectionProps = ComponentProps<'div'> & {
   sx?: SxProps<Theme>;
   cssVars?: CSSObject;
-  children?: React.ReactNode;
-  footerSection?: React.ReactNode;
-  headerSection?: React.ReactNode;
-  sidebarSection?: React.ReactNode;
+  children?: ReactNode;
+  footerSection?: ReactNode;
+  headerSection?: ReactNode;
+  sidebarSection?: ReactNode;
 };
 
 export function LayoutSection({

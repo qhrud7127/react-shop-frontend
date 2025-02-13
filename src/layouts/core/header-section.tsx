@@ -1,3 +1,4 @@
+import type {ReactNode, ComponentProps} from "react";
 import type { AppBarProps } from '@mui/material/AppBar';
 import type { ContainerProps } from '@mui/material/Container';
 import type { Theme, SxProps, CSSObject, Breakpoint } from '@mui/material/styles';
@@ -18,15 +19,15 @@ export type HeaderSectionProps = AppBarProps & {
   disableOffset?: boolean;
   disableElevation?: boolean;
   slots?: {
-    leftArea?: React.ReactNode;
-    rightArea?: React.ReactNode;
-    topArea?: React.ReactNode;
-    centerArea?: React.ReactNode;
-    bottomArea?: React.ReactNode;
+    leftArea?: ReactNode;
+    rightArea?: ReactNode;
+    topArea?: ReactNode;
+    centerArea?: ReactNode;
+    bottomArea?: ReactNode;
   };
   slotProps?: {
     container?: ContainerProps;
-    centerArea?: React.ComponentProps<'div'> & { sx?: SxProps<Theme> };
+    centerArea?: ComponentProps<'div'> & { sx?: SxProps<Theme> };
   };
 };
 

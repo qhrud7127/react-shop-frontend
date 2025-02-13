@@ -1,12 +1,14 @@
+import type {ComponentProps} from "react";
+
 import { mergeClasses } from 'minimal-shared/utils';
 
 import { styled } from '@mui/material/styles';
 
-import { layoutClasses } from '../core/classes';
+import { layoutClasses } from './classes';
 
 // ----------------------------------------------------------------------
 
-export type MainSectionProps = React.ComponentProps<typeof MainRoot>;
+export type MainSectionProps = ComponentProps<typeof MainRoot>;
 
 export function MainSection({ children, className, sx, ...other }: MainSectionProps) {
   return (
