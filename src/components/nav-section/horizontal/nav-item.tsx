@@ -136,8 +136,8 @@ const ItemRoot = styled(ButtonBase, { shouldForwardProp })<StyledState>(({
     }),
     ...(active && {
       color: 'var(--nav-item-root-active-color)',
-      backgroundColor: 'var(--nav-item-root-active-bg)',
-      '&:hover': { backgroundColor: 'var(--nav-item-root-active-hover-bg)' },
+      // backgroundColor: 'var(--nav-item-root-active-bg)',
+      // '&:hover': { backgroundColor: 'var(--nav-item-root-active-hover-bg)' },
       ...theme.applyStyles('dark', {
         color: 'var(--nav-item-root-active-color-on-dark)',
       }),
@@ -163,7 +163,7 @@ const ItemRoot = styled(ButtonBase, { shouldForwardProp })<StyledState>(({
     flexShrink: 0,
     color: 'var(--nav-item-color)',
     borderRadius: 'var(--nav-item-radius)',
-    '&:hover': { backgroundColor: 'var(--nav-item-hover-bg)' },
+    // '&:hover': { backgroundColor: 'var(--nav-item-hover-bg)' },
     variants: [
       { props: { variant: 'rootItem' }, style: rootItemStyles },
       { props: { variant: 'subItem' }, style: subItemStyles },
@@ -188,7 +188,7 @@ const ItemIcon = styled('span', { shouldForwardProp })<StyledState>(() => ({
  */
 const ItemTitle = styled('span', { shouldForwardProp })<StyledState>(({ theme }) => ({
   ...navItemStyles.title(theme),
-  ...theme.typography.body2,
+  ...theme.typography.subtitle1,
   fontWeight: theme.typography.fontWeightMedium,
   variants: [
     { props: { active: true }, style: { fontWeight: theme.typography.fontWeightSemiBold } },

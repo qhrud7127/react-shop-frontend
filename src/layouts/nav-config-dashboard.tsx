@@ -50,15 +50,20 @@ export const navData: NavSectionProps['data'] = [
   {
     items: [
       {
-        title: '베스트',
+        title: '홈',
         path: paths.dashboard.root,
+        icon: ICONS.dashboard,
+        // info: <Label>v{CONFIG.appVersion}</Label>,
+      },
+      {
+        title: '베스트',
+        path: paths.dashboard.two,
         icon: ICONS.dashboard,
         // info: <Label>v{CONFIG.appVersion}</Label>,
       },
       { title: '세일', path: paths.dashboard.two, icon: ICONS.ecommerce },
       { title: '신상', path: paths.dashboard.three, icon: ICONS.analytics },
       { title: '추천', path: paths.dashboard.group.root, icon: ICONS.analytics },
-
     ],
   },
   {
