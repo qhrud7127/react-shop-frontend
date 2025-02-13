@@ -291,6 +291,11 @@
   resolved "https://registry.npmjs.org/@fontsource-variable/inter/-/inter-5.1.1.tgz"
   integrity sha512-OpXFTmiH6tHkYijMvQTycFKBLK4X+SRV6tet1m4YOUH7SzIIlMqDja+ocDtiCA72UthBH/vF+3ZtlMr2rN/wIw==
 
+"@fontsource-variable/noto-sans-kr@^5.1.1":
+  version "5.1.1"
+  resolved "https://registry.npmjs.org/@fontsource-variable/noto-sans-kr/-/noto-sans-kr-5.1.1.tgz"
+  integrity sha512-+hw9e4B1q35VK8vbWOclmyws/38i+ouVEx5kZsKyyVlSINhpvhanv6N0VGwtnKmsDArc5mbSUnFLclUePMYHsA==
+
 "@fontsource-variable/nunito-sans@^5.1.1":
   version "5.1.1"
   resolved "https://registry.npmjs.org/@fontsource-variable/nunito-sans/-/nunito-sans-5.1.1.tgz"

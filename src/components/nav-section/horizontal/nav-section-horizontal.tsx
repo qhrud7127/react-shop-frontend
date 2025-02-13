@@ -37,7 +37,7 @@ export function NavSectionHorizontal({
           () => ({
             ...cssVars,
             height: 1,
-            mx: 'auto',
+            mr: 'auto',
             display: 'flex',
             alignItems: 'center',
             minHeight: 'var(--nav-height)',

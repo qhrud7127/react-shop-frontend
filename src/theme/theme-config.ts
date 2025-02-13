@@ -1,6 +1,6 @@
 import type { CommonColors } from '@mui/material/styles/createPalette';
 
-import type { PaletteColorNoChannels } from './core/palette';
+import type { PaletteColorNoChannels } from './core';
 import type { ThemeDirection, ThemeColorScheme, ThemeCssVariables } from './types';
 
 // ----------------------------------------------------------------------
@@ -36,7 +36,7 @@ export const themeConfig: ThemeConfig = {
    * Typography
    *************************************** */
   fontFamily: {
-    primary: 'Public Sans Variable',
+    primary: 'Noto Sans KR Variable',
     secondary: 'Barlow',
   },
   /** **************************************

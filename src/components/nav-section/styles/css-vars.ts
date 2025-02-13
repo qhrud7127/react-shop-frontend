@@ -91,7 +91,7 @@ function horizontalVars(theme: Theme) {
 
   return {
     ...colorVars(theme, 'horizontal'),
-    '--nav-item-gap': '6px',
+    '--nav-item-gap': '30px',
     '--nav-height': '56px',
     '--nav-item-radius': `${shape.borderRadius * 0.75}px`,
     // root
