@@ -118,11 +118,6 @@ export function AccountDrawer({ data = [], sx, ...other }: AccountDrawerProps) {
   return (
     <>
       <AccountButton
-        onClick={onOpen}
-        photoURL={user?.photoURL}
-        displayName={user?.displayName}
-        sx={sx}
-        {...other}
       />
 
       <Drawer

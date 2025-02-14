@@ -1,6 +1,7 @@
 import { mergeClasses } from 'minimal-shared/utils';
 
 import { useTheme } from '@mui/material/styles';
+import Container from "@mui/material/Container";
 
 import { NavList } from './nav-list';
 import { Scrollbar } from '../../scrollbar';
@@ -27,7 +28,8 @@ export function NavSectionHorizontal({
   const cssVars = { ...navSectionCssVars.horizontal(theme), ...overridesVars };
 
   return (
-    <Scrollbar
+    <Container maxWidth="xl" sx={{paddingLeft: 'var(--layout-dashboard-content-px)'}}>
+      <Scrollbar
       sx={{ height: 1 }}
       slotProps={{ contentSx: { height: 1, display: 'flex', alignItems: 'center' } }}
     >
@@ -61,6 +63,7 @@ export function NavSectionHorizontal({
         </NavUl>
       </Nav>
     </Scrollbar>
+    </Container>
   );
 }
 

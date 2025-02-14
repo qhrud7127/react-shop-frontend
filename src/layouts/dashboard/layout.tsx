@@ -14,12 +14,15 @@ import { useSettingsContext } from 'src/components/settings';
 import { NavMobile } from './nav-mobile';
 import { NavVertical } from './nav-vertical';
 import { NavHorizontal } from './nav-horizontal';
+import { Searchbar } from '../components/searchbar';
+import { CartButton } from '../components/cart-button';
 import { MenuButton } from '../components/menu-button';
+import { AccountButton } from '../components/account-button';
 import { navData as dashboardNavData } from '../nav-config-dashboard';
 import { dashboardLayoutVars, dashboardNavColorVars } from './css-vars';
-import { MainSection , layoutClasses , HeaderSection , LayoutSection } from '../core';
+import { MainSection, HeaderSection, layoutClasses, LayoutSection } from '../core';
 
-import type { MainSectionProps , LayoutSectionProps , HeaderSectionProps } from '../core';
+import type { MainSectionProps, HeaderSectionProps, LayoutSectionProps } from '../core';
 
 // ----------------------------------------------------------------------
 
@@ -114,7 +117,7 @@ export function DashboardLayout({
       rightArea: (
         <Box sx={{ display: 'flex', alignItems: 'center', gap: { xs: 0, sm: 0.75 } }}>
           {/** @slot Searchbar */}
-          {/*<Searchbar data={navData} />*/}
+          <Searchbar data={navData} />
 
           {/** @slot Language popover */}
           {/*<LanguagePopover
@@ -136,8 +139,11 @@ export function DashboardLayout({
           {/** @slot Settings button */}
           {/*<SettingsButton />*/}
 
-          {/** @slot Account drawer */}
-          {/*<AccountDrawer data={_account} />*/}
+          {/** @slot Account button */}
+          <AccountButton />
+
+          {/** @slot cart button */}
+          <CartButton />
         </Box>
       ),
     };

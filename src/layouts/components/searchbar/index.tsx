@@ -1,14 +1,13 @@
 import type { BoxProps } from '@mui/material/Box';
 import type { NavSectionProps } from 'src/components/nav-section';
 
+import { varAlpha } from 'minimal-shared/utils';
 import parse from 'autosuggest-highlight/parse';
 import match from 'autosuggest-highlight/match';
-import { varAlpha } from 'minimal-shared/utils';
 import { useBoolean } from 'minimal-shared/hooks';
 import { useState, useEffect, useCallback } from 'react';
 
 import Box from '@mui/material/Box';
-import SvgIcon from '@mui/material/SvgIcon';
 import MenuList from '@mui/material/MenuList';
 import { useTheme } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
@@ -81,6 +80,7 @@ export function Searchbar({ data: navItems = [], sx, ...other }: SearchbarProps)
           display: 'flex',
           alignItems: 'center',
           pr: { sm: 1 },
+          pl: { sm: 15 },
           borderRadius: { sm: 1.5 },
           cursor: { sm: 'pointer' },
           bgcolor: { sm: varAlpha(theme.vars.palette.grey['500Channel'], 0.08) },
@@ -100,26 +100,9 @@ export function Searchbar({ data: navItems = [], sx, ...other }: SearchbarProps)
     >
       <IconButton disableRipple>
         {/* https://icon-sets.iconify.design/eva/search-fill/ */}
-        <SvgIcon sx={{ width: 20, height: 20 }}>
-          <path
-            fill="currentColor"
-            d="m20.71 19.29l-3.4-3.39A7.92 7.92 0 0 0 19 11a8 8 0 1 0-8 8a7.92 7.92 0 0 0 4.9-1.69l3.39 3.4a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.42M5 11a6 6 0 1 1 6 6a6 6 0 0 1-6-6"
-          />
-        </SvgIcon>
+        <Iconify icon="mingcute:search-line" />
       </IconButton>
 
-      <Label
-        sx={{
-          color: 'grey.800',
-          cursor: 'inherit',
-          bgcolor: 'common.white',
-          fontSize: theme.typography.pxToRem(12),
-          boxShadow: theme.vars.customShadows.z1,
-          display: { xs: 'none', sm: 'inline-flex' },
-        }}
-      >
-        ⌘K
-      </Label>
     </Box>
   );
 
@@ -177,7 +160,7 @@ export function Searchbar({ data: navItems = [], sx, ...other }: SearchbarProps)
           <InputBase
             fullWidth
             autoFocus={open}
-            placeholder="Search..."
+            placeholder="검색어 입력"
             value={searchQuery}
             onChange={handleSearch}
             startAdornment={

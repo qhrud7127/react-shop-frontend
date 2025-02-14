@@ -2,14 +2,10 @@ import { m } from 'framer-motion';
 
 import IconButton from '@mui/material/IconButton';
 
-import { varTap, varHover, transitionTap } from 'src/components/animate';
-
 import { Iconify } from '../../components/iconify';
+import { varTap, varHover, transitionTap } from '../../components/animate';
 
-// ----------------------------------------------------------------------
-
-export function AccountButton() {
-  return (
+export const CartButton = () => (
     <IconButton
       component={m.button}
       whileTap={varTap(0.96)}
@@ -17,7 +13,6 @@ export function AccountButton() {
       transition={transitionTap()}
       aria-label="Account button"
     >
-      <Iconify icon="mingcute:user-3-line" />
+      <Iconify icon="mingcute:shopping-cart-2-line" />
     </IconButton>
   );
-}
