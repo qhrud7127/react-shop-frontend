@@ -2,11 +2,12 @@ import { Helmet } from 'react-helmet-async';
 
 import { CONFIG } from 'src/global-config';
 
-import { BlankView } from 'src/sections/blank/view';
+import {DashboardView} from "../../sections/dashboard/dashboard-view";
+
 
 // ----------------------------------------------------------------------
 
-const metadata = { title: `Page one | Dashboard - ${CONFIG.appName}` };
+const metadata = { title: `DnA mall | Dashboard - ${CONFIG.appName}` };
 
 export default function Page() {
   return (
@@ -15,7 +16,7 @@ export default function Page() {
         <title> {metadata.title}</title>
       </Helmet>
 
-      <BlankView title="Page one" />
+      <DashboardView title="Page one" />
     </>
   );
 }
