@@ -15,11 +15,8 @@ import { usePathname } from '../hooks';
 // ----------------------------------------------------------------------
 
 const IndexPage = lazy(() => import('src/pages/dashboard/dashboard'));
-const PageTwo = lazy(() => import('src/pages/dashboard/two'));
-const PageThree = lazy(() => import('src/pages/dashboard/three'));
-const PageFour = lazy(() => import('src/pages/dashboard/four'));
-const PageFive = lazy(() => import('src/pages/dashboard/five'));
-const PageSix = lazy(() => import('src/pages/dashboard/six'));
+const ProductListPage = lazy(() => import('src/pages/product/list'));
+const ProductDetailPage = lazy(() => import('src/pages/product/detail'));
 
 // ----------------------------------------------------------------------
 
@@ -42,18 +39,23 @@ export const dashboardRoutes: RouteObject[] = [
   {
     path: 'dashboard',
     element: CONFIG.auth.skip ? dashboardLayout() : <AuthGuard>{dashboardLayout()}</AuthGuard>,
+    children: [{ element: <IndexPage />, index: true }],
+  },
+  {
+    path: 'product',
+    element: CONFIG.auth.skip ? dashboardLayout() : <AuthGuard>{dashboardLayout()}</AuthGuard>,
     children: [
       { element: <IndexPage />, index: true },
-      { path: 'two', element: <PageTwo /> },
-      { path: 'three', element: <PageThree /> },
-      {
+      { path: 'list', element: <ProductListPage /> },
+      { path: 'detail', element: <ProductDetailPage /> },
+      /* {
         path: 'group',
         children: [
           { element: <PageFour />, index: true },
           { path: 'five', element: <PageFive /> },
           { path: 'six', element: <PageSix /> },
         ],
-      },
+      },*/
     ],
   },
 ];
