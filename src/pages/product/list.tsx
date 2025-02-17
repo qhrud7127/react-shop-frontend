@@ -17,7 +17,7 @@ export default function Page() {
         <title> {metadata.title}</title>
       </Helmet>
 
-      <ProductListView />
+      <ProductListView title="베스트" />
     </>
   );
 }

@@ -45,9 +45,9 @@ export const dashboardRoutes: RouteObject[] = [
     path: 'product',
     element: CONFIG.auth.skip ? dashboardLayout() : <AuthGuard>{dashboardLayout()}</AuthGuard>,
     children: [
-      { element: <IndexPage />, index: true },
+      { index: true, element: <ProductListPage /> },
       { path: 'list', element: <ProductListPage /> },
-      { path: 'detail', element: <ProductDetailPage /> },
+      { path: 'detail/:id', element: <ProductDetailPage /> },
       /* {
         path: 'group',
         children: [
