@@ -22,9 +22,9 @@ export function ProductListView({ title = '', sx }: Props) {
       <Typography variant="h4" sx={{ margin: '10px' }}>
         베스트
       </Typography>
-      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 6, md: 12 }}>
         {Array.from(Array(30)).map((_, index) => (
-          <Grid key={index} size={{ xs: 2, sm: 4, md: 4 }}>
+          <Grid key={index} size={{ xs: 2, sm: 2, md: 3 }}>
             {blankContent(index + 1)}
           </Grid>
         ))}
