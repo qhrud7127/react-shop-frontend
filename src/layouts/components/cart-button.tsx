@@ -1,11 +1,13 @@
 import { m } from 'framer-motion';
 
+import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
 
 import { Iconify } from '../../components/iconify';
 import { varTap, varHover, transitionTap } from '../../components/animate';
 
 export const CartButton = () => (
+  <Tooltip title="장바구니">
     <IconButton
       component={m.button}
       whileTap={varTap(0.96)}
@@ -15,4 +17,5 @@ export const CartButton = () => (
     >
       <Iconify icon="mingcute:shopping-cart-2-line" />
     </IconButton>
-  );
+  </Tooltip>
+);
