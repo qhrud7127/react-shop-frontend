@@ -14,7 +14,7 @@ import { usePathname } from '../hooks';
 
 // ----------------------------------------------------------------------
 
-const IndexPage = lazy(() => import('src/pages/dashboard/one'));
+const IndexPage = lazy(() => import('src/pages/dashboard/dashboard'));
 const PageTwo = lazy(() => import('src/pages/dashboard/two'));
 const PageThree = lazy(() => import('src/pages/dashboard/three'));
 const PageFour = lazy(() => import('src/pages/dashboard/four'));
