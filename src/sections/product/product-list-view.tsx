@@ -26,7 +26,7 @@ export function ProductListView({ title = '', sx }: Props) {
       <Grid container spacing={{ xs: 2, md: 4 }} columns={{ xs: 4, sm: 6, md: 12 }}>
         {Array.from(Array(24)).map((_, index) => (
           <Grid key={index} size={{ xs: 2, sm: 2, md: 3 }}>
-            {blankContent(index + 1)}
+            {productItem(index + 1)}
           </Grid>
         ))}
       </Grid>
@@ -35,7 +35,7 @@ export function ProductListView({ title = '', sx }: Props) {
       </Stack>
     </Box>
   );
-  const blankContent = (index: number) => {
+  const productItem = (index: number) => {
     const path = `/assets/images/mock/m-product/product-${index}.webp`
     return (
       <Link href={paths.product.details(index)} color="inherit">
