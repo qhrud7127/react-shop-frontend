@@ -5,6 +5,7 @@ import { varAlpha } from 'minimal-shared/utils';
 
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid2';
+import { Stack, Pagination } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
 import { DashboardContent } from 'src/layouts/dashboard';
@@ -23,16 +24,19 @@ export function ProductListView({ title = '', sx }: Props) {
         베스트
       </Typography>
       <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 6, md: 12 }}>
-        {Array.from(Array(30)).map((_, index) => (
+        {Array.from(Array(32)).map((_, index) => (
           <Grid key={index} size={{ xs: 2, sm: 2, md: 3 }}>
             {blankContent(index + 1)}
           </Grid>
         ))}
       </Grid>
+      <Stack alignItems="center" sx={{my: 4}}>
+        <Pagination count={10} />
+      </Stack>
     </Box>
   );
   const blankContent = (index: number) => (
-    <Box
+    <Stack
       sx={[
         (theme) => ({
           mt: 5,
@@ -40,8 +44,6 @@ export function ProductListView({ title = '', sx }: Props) {
           borderRadius: 1,
           border: `dashed 1px ${theme.vars.palette.divider}`,
           bgcolor: varAlpha(theme.vars.palette.grey['500Channel'], 0.04),
-          display: 'flex',
-          flexDirection: 'column',
         }),
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}
@@ -79,7 +81,7 @@ export function ProductListView({ title = '', sx }: Props) {
       <Typography variant="h6" sx={{ margin: '10px', fontWeight: 'bold' }}>
         59,900원
       </Typography>
-    </Box>
+    </Stack>
   );
 
   return (
