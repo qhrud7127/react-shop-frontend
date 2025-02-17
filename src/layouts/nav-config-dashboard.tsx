@@ -57,16 +57,16 @@ export const navData: NavSectionProps['data'] = [
       },
       {
         title: '베스트',
-        path: paths.dashboard.two,
+        path: paths.product.list,
         icon: ICONS.dashboard,
         // info: <Label>v{CONFIG.appVersion}</Label>,
-      },
+      },/*
       { title: '세일', path: paths.dashboard.two, icon: ICONS.ecommerce },
       { title: '신상', path: paths.dashboard.three, icon: ICONS.analytics },
-      { title: '추천', path: paths.dashboard.group.root, icon: ICONS.analytics },
+      { title: '추천', path: paths.dashboard.group.root, icon: ICONS.analytics },*/
     ],
   },
-  {
+  /*{
     items: [
       {
         title: '여성',
@@ -79,5 +79,5 @@ export const navData: NavSectionProps['data'] = [
         ],
       },
     ],
-  },
+  },*/
 ];

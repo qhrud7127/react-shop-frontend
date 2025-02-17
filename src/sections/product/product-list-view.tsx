@@ -1,12 +1,11 @@
 import type { Theme, SxProps } from '@mui/material/styles';
 
 import React from 'react';
-import { varAlpha } from 'minimal-shared/utils';
 
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid2';
-import { Stack, Pagination } from '@mui/material';
 import Typography from '@mui/material/Typography';
+import {Stack, Rating, Pagination} from '@mui/material';
 
 import { DashboardContent } from 'src/layouts/dashboard';
 
@@ -23,7 +22,7 @@ export function ProductListView({ title = '', sx }: Props) {
       <Typography variant="h4" sx={{ margin: '10px' }}>
         베스트
       </Typography>
-      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 6, md: 12 }}>
+      <Grid container spacing={{ xs: 2, md: 4 }} columns={{ xs: 4, sm: 6, md: 12 }}>
         {Array.from(Array(32)).map((_, index) => (
           <Grid key={index} size={{ xs: 2, sm: 2, md: 3 }}>
             {blankContent(index + 1)}
@@ -39,11 +38,11 @@ export function ProductListView({ title = '', sx }: Props) {
     <Stack
       sx={[
         (theme) => ({
-          mt: 5,
-          width: 1,
-          borderRadius: 1,
-          border: `dashed 1px ${theme.vars.palette.divider}`,
-          bgcolor: varAlpha(theme.vars.palette.grey['500Channel'], 0.04),
+          mt: 3,
+          // width: 1,
+          // borderRadius: 1,
+          // border: `dashed 1px ${theme.vars.palette.divider}`,
+          // bgcolor: varAlpha(theme.vars.palette.grey['500Channel'], 0.04),
         }),
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}
@@ -67,18 +66,17 @@ export function ProductListView({ title = '', sx }: Props) {
         src="/images/image_0001_1024x1200.png"
         alt="sample"
         loading="lazy"
-        style={{ padding: '0 10px' }}
+        style={{}}
       />
-      {/*  <Typography variant="body1" sx={{ margin: '10px', fontWeight: 'bold' }}>
-        59,900원
-      </Typography>*/}
-      <Typography variant="subtitle1" sx={{ marginLeft: '10px', fontWeight: 'bold' }}>
+
+      <Typography variant="subtitle1" sx={{fontWeight: 'bold' }}>
         태그호이어
       </Typography>
-      <Typography variant="body2" sx={{ marginLeft: '10px' }}>
+      <Typography variant="body2">
         까레라 (남성용)
       </Typography>
-      <Typography variant="h6" sx={{ margin: '10px', fontWeight: 'bold' }}>
+      <Rating name="read-only" value={4.5} readOnly precision={0.5} />
+      <Typography variant="h6" sx={{fontWeight: 'bold' }}>
         59,900원
       </Typography>
     </Stack>
