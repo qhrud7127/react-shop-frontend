@@ -9,13 +9,6 @@ type Props = {
   settings: Settings;
 };
 export const SingleCarousel = ({ settings }: Props) => (
-  /* const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };*/
   <Box className="slider-container" sx={{marginBottom:'30px'}}>
     <Slider {...settings}>
       <div>

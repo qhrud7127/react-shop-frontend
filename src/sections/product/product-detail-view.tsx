@@ -1,128 +1,133 @@
 import type { Theme, SxProps } from '@mui/material/styles';
 
-import React from 'react';
+import Slider from 'react-slick';
 import { useTabs } from 'minimal-shared';
 import { varAlpha } from 'minimal-shared/utils';
+import React, { useState, useEffect, useCallback } from 'react';
 
-import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
+import { Card } from '@mui/material';
 import Tabs from '@mui/material/Tabs';
 import Grid from '@mui/material/Grid2';
 import Button from '@mui/material/Button';
-import { Card, Stack } from '@mui/material';
-import Typography from '@mui/material/Typography';
 
 import { DashboardContent } from 'src/layouts/dashboard';
 
 import { paths } from '../../routes/paths';
-import { CustomBreadcrumbs } from '../../components/custom-breadcrumbs';
-import { SingleCarousel } from '../../components/carousel/single-carousel';
+import { Iconify } from '../../components/iconify';
+import { RouterLink } from '../../routes/components';
+import { ProductDetailsSkeleton } from './product-skeleton';
+import { EmptyContent } from '../../components/empty-content';
+import {ProductDetailsSummary} from "./product-details-summary";
 
 // ----------------------------------------------------------------------
 
 type Props = {
   title?: string;
+  product?: any;
+  loading?: boolean;
+  error?: any;
   sx?: SxProps<Theme>;
 };
-const singleSettings = {
-  dots: true,
-  infinite: true,
-  autoplay: true,
-  speed: 300,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-};
 
-export function ProductDetailView({ title = '', sx }: Props) {
+export function ProductDetailView({ title = '', sx, product, error, loading }: Props) {
   const tabs = useTabs('description');
-  const gridLayoutView = () => (
-    <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={{ xs: 1, md: 3 }}>
-        <Grid size={{ xs: 12, md: 6 }}>{productDetailCarousel()}</Grid>
-        <Grid size={{ xs: 12, md: 6 }}>{productDetailInfo()}</Grid>
-        <Grid size={{ xs: 12, md: 12 }}>{productDetail()}</Grid>
-      </Grid>
-    </Box>
-  );
-  const productDetail = () => (
-    <Card>
-      <Tabs
-        value={tabs.value}
-        onChange={tabs.onChange}
-        sx={[
-          (theme) => ({
-            px: 3,
-            boxShadow: `inset 0 -2px 0 0 ${varAlpha(theme.vars.palette.grey['500Channel'], 0.08)}`,
-          }),
-        ]}
-      >
-        {[
-          { value: 'description', label: 'Description' },
-          { value: 'reviews', label: `Reviews ()` },
-        ].map((tab) => (
-          <Tab key={tab.value} value={tab.value} label={tab.label} />
-        ))}
-      </Tabs>
+  const [nav1, setNav1] = useState(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [slider1, setSlider1] = useState(null);
 
-      {/*   {tabs.value === 'description' && (
-        <ProductDetailsDescription description={product?.description ?? ''} />
-      )}
+  useEffect(() => {
+    setNav1(slider1);
+  }, [slider1]);
 
-      {tabs.value === 'reviews' && (
-        <ProductDetailsReview
-          ratings={product?.ratings ?? []}
-          reviews={product?.reviews ?? []}
-          totalRatings={product?.totalRatings ?? 0}
-          totalReviews={product?.totalReviews ?? 0}
+  const [publish, setPublish] = useState('');
+
+  useEffect(() => {
+    if (product) {
+      setPublish(product?.publish);
+    }
+  }, [product]);
+
+  const handleChangePublish = useCallback((newValue: string) => {
+    setPublish(newValue);
+  }, []);
+
+  if (loading) {
+    return (
+      <DashboardContent sx={{ pt: 5 }}>
+        <ProductDetailsSkeleton />
+      </DashboardContent>
+    );
+  }
+
+  if (error) {
+    return (
+      <DashboardContent sx={{ pt: 5 }}>
+        <EmptyContent
+          filled
+          title="Product not found!"
+          action={
+            <Button
+              component={RouterLink}
+              href={paths.dashboard.root}
+              startIcon={<Iconify width={16} icon="eva:arrow-ios-back-fill" />}
+              sx={{ mt: 3 }}
+            >
+              Back to list
+            </Button>
+          }
+          sx={{ py: 10, height: 'auto', flexGrow: 'unset' }}
         />
-      )}*/}
-    </Card>
-  );
-  const productDetailInfo = () => (
-    <Box>
-      <Typography variant="h4" sx={{ margin: '10px' }}>
-        태그호이어 | TAG HEUER
-      </Typography>
-      <Typography variant="h4" sx={{ margin: '10px' }}>
-        까레라 (남성용)
-      </Typography>
-      <Typography variant="h4" sx={{ margin: '10px' }}>
-        $6,800 (9,863,400원)
-      </Typography>
-      <Stack spacing={2} direction="row" flexGrow={1}>
-        <Button variant="outlined">장바구니</Button>
-        <Button color="primary" variant="contained">
-          구매하기
-        </Button>
-      </Stack>
-    </Box>
-  );
-
-  const productDetailCarousel = () => (
-    <Box
-      sx={[
-        (theme) => ({
-          width: 1,
-          height: 600,
-          borderRadius: 2,
-          border: `dashed 1px ${theme.vars.palette.divider}`,
-          bgcolor: varAlpha(theme.vars.palette.grey['500Channel'], 0.04),
-        }),
-        ...(Array.isArray(sx) ? sx : [sx]),
-      ]}
-    >
-      <SingleCarousel settings={singleSettings} />
-    </Box>
-  );
+      </DashboardContent>
+    );
+  }
 
   return (
-    <DashboardContent maxWidth="xl">
-      <CustomBreadcrumbs
-        heading={title}
-        links={[{ name: '홈', href: paths.dashboard.root }, { name: '신발' }, { name: '단화' }]}
-        sx={{ mb: { xs: 3, md: 5 } }}
-      />
-      {gridLayoutView()}
+    <DashboardContent>
+      <Grid container spacing={{ xs: 3, md: 5, lg: 8 }}>
+        <Grid size={{ xs: 12, md: 6, lg: 7 }}>
+          <Slider>
+            {product?.images.map((image: string, i: number) => (
+              <img key={i} width="100%" src={image} alt="sample" loading="lazy" />
+            ))}
+          </Slider>
+        </Grid>
+        <Grid size={{ xs: 12, md: 6, lg: 5 }}>
+          {product && <ProductDetailsSummary disableActions product={product} />}
+        </Grid>
+      </Grid>
+      <Card>
+        <Tabs
+          value={tabs.value}
+          onChange={tabs.onChange}
+          sx={[
+            (theme) => ({
+              px: 3,
+              boxShadow: `inset 0 -2px 0 0 ${varAlpha(theme.vars.palette.grey['500Channel'], 0.08)}`,
+            }),
+          ]}
+        >
+          {[
+            { value: 'description', label: 'Description' },
+            { value: 'reviews', label: `Reviews (${product?.reviews.length})` },
+          ].map((tab) => (
+            <Tab key={tab.value} value={tab.value} label={tab.label} />
+          ))}
+        </Tabs>
+        {/*
+        {tabs.value === 'description' && (
+          <ProductDetailsDescription description={product?.description ?? ''} />
+        )}
+
+        {tabs.value === 'reviews' && (
+          <ProductDetailsReview
+            ratings={product?.ratings ?? []}
+            reviews={product?.reviews ?? []}
+            totalRatings={product?.totalRatings ?? 0}
+            totalReviews={product?.totalReviews ?? 0}
+          />
+        )}*/}
+      </Card>
     </DashboardContent>
   );
 }
