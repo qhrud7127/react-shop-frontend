@@ -18,7 +18,9 @@ import { Iconify } from '../../components/iconify';
 import { RouterLink } from '../../routes/components';
 import { ProductDetailsSkeleton } from './product-skeleton';
 import { EmptyContent } from '../../components/empty-content';
-import {ProductDetailsSummary} from "./product-details-summary";
+import {ProductDetailsReview} from "./product-details-review";
+import { ProductDetailsSummary } from './product-details-summary';
+import {ProductDetailsDescription} from "./product-details-description";
 
 // ----------------------------------------------------------------------
 
@@ -32,13 +34,23 @@ type Props = {
 
 export function ProductDetailView({ title = '', sx, product, error, loading }: Props) {
   const tabs = useTabs('description');
-  const [nav1, setNav1] = useState(null);
+  const [nav, setNav] = useState(undefined);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [slider1, setSlider1] = useState(null);
+  const [slider, setSlider] = useState<any>(null);
 
   useEffect(() => {
-    setNav1(slider1);
-  }, [slider1]);
+    const getIcons = document.querySelectorAll('.slick-slide');
+    console.log(getIcons);
+    getIcons.forEach(function (iconEach) {
+      const getIconAttr = iconEach.getAttribute('aria-hidden');
+      if (!getIconAttr) {
+        iconEach.setAttribute('aria-hidden', 'false');
+      }
+    });
+    console.log(slider);
+    console.log(nav);
+    setNav(slider);
+  }, [slider]);
 
   const [publish, setPublish] = useState('');
 
@@ -59,6 +71,17 @@ export function ProductDetailView({ title = '', sx, product, error, loading }: P
       </DashboardContent>
     );
   }
+
+  const settings = {
+    onReInit: () => setCurrentSlide(slider?.innerSlider.state.currentSlide),
+    asNavFor: '.slider-nav',
+    focusOnSelect: true,
+    infinite: true,
+    // autoplay: true,
+    speed: 300,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
 
   if (error) {
     return (
@@ -86,11 +109,25 @@ export function ProductDetailView({ title = '', sx, product, error, loading }: P
     <DashboardContent>
       <Grid container spacing={{ xs: 3, md: 5, lg: 8 }}>
         <Grid size={{ xs: 12, md: 6, lg: 7 }}>
-          <Slider>
+          <Slider {...settings} asNavFor={nav} ref={(s) => setSlider(s)}>
             {product?.images.map((image: string, i: number) => (
               <img key={i} width="100%" src={image} alt="sample" loading="lazy" />
             ))}
           </Slider>
+          <div className="thumb-wrapper">
+            {product?.images.map((image: string, idx: number) => (
+              <div
+                key={idx}
+                className={currentSlide === idx ? 'active' : ''}
+                onClick={() => {
+                  slider?.slickGoTo(idx);
+                }}
+              >
+                <img src={image} alt="item.alt" />
+                {currentSlide}
+              </div>
+            ))}
+          </div>
         </Grid>
         <Grid size={{ xs: 12, md: 6, lg: 5 }}>
           {product && <ProductDetailsSummary disableActions product={product} />}
@@ -114,7 +151,7 @@ export function ProductDetailView({ title = '', sx, product, error, loading }: P
             <Tab key={tab.value} value={tab.value} label={tab.label} />
           ))}
         </Tabs>
-        {/*
+
         {tabs.value === 'description' && (
           <ProductDetailsDescription description={product?.description ?? ''} />
         )}
@@ -126,7 +163,7 @@ export function ProductDetailView({ title = '', sx, product, error, loading }: P
             totalRatings={product?.totalRatings ?? 0}
             totalReviews={product?.totalReviews ?? 0}
           />
-        )}*/}
+        )}
       </Card>
     </DashboardContent>
   );
