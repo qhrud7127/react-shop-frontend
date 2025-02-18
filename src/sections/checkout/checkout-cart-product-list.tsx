@@ -12,10 +12,10 @@ import { CheckoutCartProduct } from './checkout-cart-product';
 // ----------------------------------------------------------------------
 
 const TABLE_HEAD: TableHeadCellProps[] = [
-  { id: 'product', label: 'Product' },
-  { id: 'price', label: 'Price' },
-  { id: 'quantity', label: 'Quantity' },
-  { id: 'totalAmount', label: 'Total Price', align: 'right' },
+  { id: 'product', label: '상품정보' },
+  { id: 'price', label: '금액' },
+  { id: 'quantity', label: '수량' },
+  { id: 'totalAmount', label: '합계', align: 'right' },
   { id: '' },
 ];
 

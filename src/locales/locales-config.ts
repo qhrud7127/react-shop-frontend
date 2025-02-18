@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------
 
-export const fallbackLng = 'en';
+export const fallbackLng = 'ko';
 export const languages = ['en', 'fr', 'vi', 'cn', 'ar'];
 export const defaultNS = 'common';
 
@@ -30,6 +30,11 @@ export const changeLangMessages: Record<
     success: 'Language has been changed!',
     error: 'Error changing language!',
     loading: 'Loading...',
+  },
+  ko: {
+    success: '언어가 변경되었습니다!',
+    error: '언어 변경 중 오류가 발생했습니다!',
+    loading: '로딩중...',
   },
   vi: {
     success: 'Ngôn ngữ đã được thay đổi!',

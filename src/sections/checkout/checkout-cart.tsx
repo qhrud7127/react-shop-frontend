@@ -47,8 +47,8 @@ export function CheckoutCart() {
 
   const renderEmpty = () => (
     <EmptyContent
-      title="Cart is empty!"
-      description="Look like you have no items in your shopping cart."
+      title="장바구니가 비어 있습니다."
+      description="장바구니에 담긴 상품이 없습니다."
       imgUrl={`${CONFIG.assetsDir}/assets/icons/empty/ic-cart.svg`}
       sx={{ height: 340 }}
     />
@@ -61,9 +61,9 @@ export function CheckoutCart() {
           <CardHeader
             title={
               <Typography variant="h6">
-                {`Cart `}
+                장바구니
                 <Typography component="span" sx={{ color: 'text.secondary' }}>
-                  ({checkoutState.totalItems} items)
+                  &nbsp; ({checkoutState.totalItems})
                 </Typography>
               </Typography>
             }
@@ -93,7 +93,7 @@ export function CheckoutCart() {
           color="inherit"
           startIcon={<Iconify icon="eva:arrow-ios-back-fill" />}
         >
-          Continue shopping
+          쇼핑 계속하기
         </Button>
       </Grid>
 
@@ -108,7 +108,7 @@ export function CheckoutCart() {
           disabled={isCartEmpty}
           onClick={() => onChangeStep('next')}
         >
-          Check out
+          전체 상품 주문
         </Button>
       </Grid>
     </Grid>

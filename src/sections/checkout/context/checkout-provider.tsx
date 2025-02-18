@@ -14,7 +14,7 @@ import { CheckoutContext } from './checkout-context';
 // ----------------------------------------------------------------------
 
 const CHECKOUT_STORAGE_KEY = 'app-checkout';
-const CHECKOUT_STEPS = ['Cart', 'Billing & address', 'Payment'];
+const CHECKOUT_STEPS = [{id: 'Cart', label: '장바구니'}, {id: 'Billing & address', label: '배송지 입력'}, {id: 'Payment', label: '결제'}];
 
 const initialState: ICheckoutState = {
   items: [],

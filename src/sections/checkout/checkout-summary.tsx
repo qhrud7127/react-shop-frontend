@@ -6,10 +6,8 @@ import Card from '@mui/material/Card';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
-import TextField from '@mui/material/TextField';
 import CardHeader from '@mui/material/CardHeader';
 import Typography from '@mui/material/Typography';
-import InputAdornment from '@mui/material/InputAdornment';
 
 import { fCurrency } from 'src/utils/format-number';
 
@@ -26,7 +24,7 @@ type Props = {
 export function CheckoutSummary({ onEdit, checkoutState, onApplyDiscount }: Props) {
   const { shipping, subtotal, discount, total } = checkoutState;
 
-  const displayShipping = shipping !== null ? 'Free' : '-';
+  const displayShipping = shipping !== null ? '무료' : '-';
 
   const rowStyles: SxProps<Theme> = {
     display: 'flex',
@@ -35,11 +33,11 @@ export function CheckoutSummary({ onEdit, checkoutState, onApplyDiscount }: Prop
   return (
     <Card sx={{ mb: 3 }}>
       <CardHeader
-        title="Order summary"
+        title="주문 요약"
         action={
           onEdit && (
             <Button size="small" onClick={onEdit} startIcon={<Iconify icon="solar:pen-bold" />}>
-              Edit
+              수정
             </Button>
           )
         }
@@ -51,7 +49,7 @@ export function CheckoutSummary({ onEdit, checkoutState, onApplyDiscount }: Prop
             variant="body2"
             sx={{ flexGrow: 1, color: 'text.secondary' }}
           >
-            Subtotal
+            주문금액
           </Typography>
           <Typography component="span" variant="subtitle2">
             {fCurrency(subtotal)}
@@ -64,7 +62,7 @@ export function CheckoutSummary({ onEdit, checkoutState, onApplyDiscount }: Prop
             variant="body2"
             sx={{ flexGrow: 1, color: 'text.secondary' }}
           >
-            Discount
+            할인금액
           </Typography>
           <Typography component="span" variant="subtitle2">
             {discount ? fCurrency(-discount) : '-'}
@@ -77,7 +75,7 @@ export function CheckoutSummary({ onEdit, checkoutState, onApplyDiscount }: Prop
             variant="body2"
             sx={{ flexGrow: 1, color: 'text.secondary' }}
           >
-            Shipping
+            배송비
           </Typography>
           <Typography component="span" variant="subtitle2">
             {shipping ? fCurrency(shipping) : displayShipping}
@@ -88,7 +86,7 @@ export function CheckoutSummary({ onEdit, checkoutState, onApplyDiscount }: Prop
 
         <Box sx={{ ...rowStyles }}>
           <Typography component="span" variant="subtitle1" sx={{ flexGrow: 1 }}>
-            Total
+            총 결제금액
           </Typography>
 
           <Box sx={{ textAlign: 'right' }}>
@@ -100,12 +98,12 @@ export function CheckoutSummary({ onEdit, checkoutState, onApplyDiscount }: Prop
               {fCurrency(total)}
             </Typography>
             <Typography variant="caption" sx={{ fontStyle: 'italic' }}>
-              (VAT included if applicable)
+              (할인이 적용된 금액입니다.)
             </Typography>
           </Box>
         </Box>
 
-        {onApplyDiscount && (
+        {/*{onApplyDiscount && (
           <TextField
             fullWidth
             placeholder="Discount codes / Gifts"
@@ -115,14 +113,14 @@ export function CheckoutSummary({ onEdit, checkoutState, onApplyDiscount }: Prop
                 endAdornment: (
                   <InputAdornment position="end">
                     <Button color="primary" onClick={() => onApplyDiscount(5)} sx={{ mr: -0.5 }}>
-                      Apply
+                      적용
                     </Button>
                   </InputAdornment>
                 ),
               },
             }}
           />
-        )}
+        )}*/}
       </Stack>
     </Card>
   );

@@ -2,6 +2,9 @@ import type { IAddressItem } from './common';
 
 // ----------------------------------------------------------------------
 
+export type ICheckoutStepItem = {
+  id: string;
+  label: string;}
 export type ICheckoutItem = {
   id: string;
   name: string;
@@ -50,7 +53,7 @@ export type CheckoutContextValue = {
   setState: (updateValue: Partial<ICheckoutState>) => void;
   setField: (name: keyof ICheckoutState, updateValue: ICheckoutState[keyof ICheckoutState]) => void;
   /********/
-  steps: string[];
+  steps: ICheckoutStepItem[];
   activeStep: number | null;
   onChangeStep: (type: 'back' | 'next' | 'go', step?: number) => void;
   /********/

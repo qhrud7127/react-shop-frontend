@@ -35,6 +35,16 @@ export const allLangs = [
     },
   },
   {
+    value: 'ko',
+    label: '한국어',
+    countryCode: 'KR',
+    adapterLocale: 'en',
+    numberFormat: { code: 'ko-KR', currency: 'KRW' },
+    systemValue: {
+      components: { ...enUSDate.components, ...enUSDataGrid.components },
+    },
+  },
+  {
     value: 'fr',
     label: 'French',
     countryCode: 'FR',

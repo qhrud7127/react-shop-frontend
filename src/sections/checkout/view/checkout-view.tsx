@@ -13,11 +13,10 @@ import { CheckoutBillingAddress } from '../checkout-billing-address';
 
 export function CheckoutView() {
   const { steps, activeStep, completed, onResetCart } = useCheckoutContext();
-
   return (
     <Container sx={{ mb: 10 }}>
       <Typography variant="h4" sx={{ my: { xs: 3, md: 5 } }}>
-        Checkout
+        주문하기
       </Typography>
 
       <Grid container justifyContent={completed ? 'center' : 'flex-start'}>

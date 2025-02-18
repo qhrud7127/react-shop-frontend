@@ -26,13 +26,13 @@ export function CheckoutSteps({ steps, activeStep, sx, ...other }: Props) {
       sx={[{ mb: { xs: 3, md: 5 } }, ...(Array.isArray(sx) ? sx : [sx])]}
       {...other}
     >
-      {steps.map((label) => (
-        <Step key={label}>
+      {steps.map((step) => (
+        <Step key={step.id}>
           <StepLabel
             slots={{ stepIcon: StepIcon }}
             sx={{ [`& .${stepLabelClasses.label}`]: { fontWeight: 'fontWeightSemiBold' } }}
           >
-            {label}
+            {step.label}
           </StepLabel>
         </Step>
       ))}

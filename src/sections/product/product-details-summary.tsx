@@ -104,6 +104,7 @@ export function ProductDetailsSummary({
         colors: [values.colors],
         subtotal: values.price * values.quantity,
       });
+      router.push(paths.product.checkout);
     } catch (error) {
       console.error(error);
     }
@@ -227,7 +228,14 @@ export function ProductDetailsSummary({
         장바구니에 담기
       </Button>
 
-      <Button fullWidth size="large" type="submit" variant="contained" disabled={disableActions}>
+      <Button
+        fullWidth
+        size="large"
+        type="submit"
+        variant="contained"
+        disabled={disableActions}
+        href={paths.product.checkout}
+      >
         바로 구매
       </Button>
     </Box>

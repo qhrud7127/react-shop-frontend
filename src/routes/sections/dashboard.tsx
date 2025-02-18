@@ -17,6 +17,7 @@ import { usePathname } from '../hooks';
 const IndexPage = lazy(() => import('src/pages/dashboard/dashboard'));
 const ProductListPage = lazy(() => import('src/pages/product/list'));
 const ProductDetailPage = lazy(() => import('src/pages/product/detail'));
+const ProductCheckoutPage = lazy(() => import('src/pages/product/checkout'));
 
 // ----------------------------------------------------------------------
 
@@ -48,6 +49,7 @@ export const dashboardRoutes: RouteObject[] = [
       { index: true, element: <ProductListPage /> },
       { path: 'list', element: <ProductListPage /> },
       { path: 'detail/:id', element: <ProductDetailPage /> },
+      { path: 'checkout', element: <ProductCheckoutPage /> },
       /* {
         path: 'group',
         children: [
