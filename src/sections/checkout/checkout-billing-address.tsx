@@ -33,7 +33,7 @@ export function CheckoutBillingAddress() {
                 <Box sx={{ flexShrink: 0, display: 'flex', flexWrap: 'wrap' }}>
                   {!address.primary && (
                     <Button size="small" color="error" sx={{ mr: 1 }}>
-                      Delete
+                      삭제
                     </Button>
                   )}
                   <Button
@@ -44,7 +44,7 @@ export function CheckoutBillingAddress() {
                       onCreateBillingAddress(address);
                     }}
                   >
-                    Deliver to this address
+                    배송지 선택
                   </Button>
                 </Box>
               }

@@ -40,8 +40,8 @@ export function AddressItem({ address, action, sx, ...other }: Props) {
           </Typography>
 
           {address.primary && (
-            <Label color="info" sx={{ ml: 1 }}>
-              Default
+            <Label color="success" sx={{ ml: 1 }}>
+              기본 배송지
             </Label>
           )}
         </Box>
