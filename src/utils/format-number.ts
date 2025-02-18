@@ -91,6 +91,19 @@ export function fShortenNumber(inputValue: InputNumberValue, options?: Options) 
 
 // ----------------------------------------------------------------------
 
+export function fLocaleNumber(inputValue: InputNumberValue, options?: Options) {
+  const locale = formatNumberLocale() || DEFAULT_LOCALE;
+
+  const number = processInput(inputValue);
+  if (number === null) return '';
+
+  console.log(number.toLocaleString(locale.code));
+
+  return number.toLocaleString(locale.code);
+}
+
+// ----------------------------------------------------------------------
+
 export function fData(inputValue: InputNumberValue) {
   const number = processInput(inputValue);
   if (number === null || number === 0) return '0 bytes';

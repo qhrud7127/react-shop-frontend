@@ -11,7 +11,7 @@ import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import LinearProgress from '@mui/material/LinearProgress';
 
-import { fShortenNumber } from 'src/utils/format-number';
+import { fLocaleNumber } from 'src/utils/format-number';
 
 import { Iconify } from 'src/components/iconify';
 
@@ -39,7 +39,7 @@ export function ProductDetailsReview({
 
   const renderSummary = () => (
     <Stack spacing={1} sx={{ alignItems: 'center', justifyContent: 'center' }}>
-      <Typography variant="subtitle2">Average rating</Typography>
+      <Typography variant="subtitle2">평균 평점 </Typography>
 
       <Typography variant="h2">
         {totalRatings}
@@ -49,7 +49,7 @@ export function ProductDetailsReview({
       <Rating readOnly value={totalRatings} precision={0.1} />
 
       <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-        ({fShortenNumber(totalReviews)} reviews)
+        ({fLocaleNumber(totalReviews)} 건)
       </Typography>
     </Stack>
   );
@@ -87,7 +87,7 @@ export function ProductDetailsReview({
               component="span"
               sx={{ minWidth: 48, color: 'text.secondary' }}
             >
-              {fShortenNumber(rating.reviewCount)}
+              {fLocaleNumber(rating.reviewCount)} 건
             </Typography>
           </Box>
         ))}
@@ -103,7 +103,7 @@ export function ProductDetailsReview({
         onClick={review.onTrue}
         startIcon={<Iconify icon="solar:pen-bold" />}
       >
-        Write your review
+        구매 후기 작성
       </Button>
     </Stack>
   );

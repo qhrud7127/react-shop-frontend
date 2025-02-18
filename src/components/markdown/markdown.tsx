@@ -58,7 +58,7 @@ const components = {
     <Image
       ratio="16/9"
       className={markdownClasses.content.image}
-      sx={{ borderRadius: 2 }}
+      // sx={{ borderRadius: 2 }}
       {...other}
     />
   ),

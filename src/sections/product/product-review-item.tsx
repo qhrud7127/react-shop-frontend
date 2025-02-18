@@ -63,7 +63,7 @@ export function ProductReviewItem({ review }: Props) {
           }}
         >
           <Iconify icon="ic:round-verified" width={16} sx={{ mr: 0.5 }} />
-          Verified purchase
+          구매 인증
         </Box>
       )}
 

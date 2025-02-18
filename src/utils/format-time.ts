@@ -36,16 +36,16 @@ dayjs.extend(relativeTime);
 export type DatePickerFormat = Dayjs | Date | string | number | null | undefined;
 
 export const formatPatterns = {
-  dateTime: 'DD MMM YYYY h:mm a', // 17 Apr 2022 12:00 am
-  date: 'DD MMM YYYY', // 17 Apr 2022
+  dateTime: 'YYYY년 MM월 DD일 h:mm a', // 2024년 02월 18일 12:00 am
+  date: 'YYYY년 MM월 DD일', // 2024년 02월 18일
   time: 'h:mm a', // 12:00 am
   split: {
-    dateTime: 'DD/MM/YYYY h:mm a', // 17/04/2022 12:00 am
-    date: 'DD/MM/YYYY', // 17/04/2022
+    dateTime: 'YYYY/MM/DD h:mm a', // 2025/02/17 12:00 am
+    date: 'DD/MM/YYYY', // 2025/02/17
   },
   paramCase: {
-    dateTime: 'DD-MM-YYYY h:mm a', // 17-04-2022 12:00 am
-    date: 'DD-MM-YYYY', // 17-04-2022
+    dateTime: 'YYYY-MM-DD h:mm a', // 2025-02-17 12:00 am
+    date: 'YYYY-MM-DD', // 2025-02-17
   },
 };
 

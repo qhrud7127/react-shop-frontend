@@ -14,6 +14,8 @@ import { SettingsDrawer, defaultSettings, SettingsProvider } from 'src/component
 
 import { AuthProvider } from 'src/auth/context/jwt';
 
+import {CheckoutProvider} from "./sections/checkout/context";
+
 // ----------------------------------------------------------------------
 
 type AppProps = {
@@ -32,9 +34,11 @@ export default function App({ children }: AppProps) {
           modeStorageKey={themeConfig.modeStorageKey}
         >
           <MotionLazy>
-            <ProgressBar />
+            <CheckoutProvider>
+              <ProgressBar />
             <SettingsDrawer defaultSettings={defaultSettings} />
             {children}
+            </CheckoutProvider>
           </MotionLazy>
         </ThemeProvider>
       </SettingsProvider>

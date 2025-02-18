@@ -18,10 +18,11 @@ import { Label } from 'src/components/label';
 import { Iconify } from 'src/components/iconify';
 import { Form, Field } from 'src/components/hook-form';
 
-import {ColorPicker} from "../../components/color-utils";
-import {NumberInput} from "../../components/number-input";
+import { fLocaleNumber } from '../../utils/format-number';
+import { ColorPicker } from '../../components/color-utils';
+import { NumberInput } from '../../components/number-input';
 
-import type {CheckoutContextValue} from "../../types/checkout";
+import type { CheckoutContextValue } from '../../types/checkout';
 
 // ----------------------------------------------------------------------
 
@@ -108,7 +109,7 @@ export function ProductDetailsSummary({
     }
   }, [onAddToCart, values]);
 
-  const renderPrice = () => <Box sx={{ typography: 'h5' }}>{price}원</Box>;
+  const renderPrice = () => <Box sx={{ typography: 'h5' }}> {fLocaleNumber(price)} 원</Box>;
 
   const renderShare = () => (
     <Box
@@ -126,18 +127,12 @@ export function ProductDetailsSummary({
       }}
     >
       <Link>
-        <Iconify icon="mingcute:add-line" width={16} />
-        Compare
-      </Link>
-
-      <Link>
-        <Iconify icon="solar:heart-bold" width={16} />
-        Favorite
+        <Iconify icon="solar:heart-bold" width={16} />찜
       </Link>
 
       <Link>
         <Iconify icon="solar:share-bold" width={16} />
-        Share
+        공유하기
       </Link>
     </Box>
   );
@@ -145,7 +140,7 @@ export function ProductDetailsSummary({
   const renderColorOptions = () => (
     <Box sx={{ display: 'flex' }}>
       <Typography variant="subtitle2" sx={{ flexGrow: 1 }}>
-        Color
+        색상
       </Typography>
 
       <Controller
@@ -166,7 +161,7 @@ export function ProductDetailsSummary({
   const renderSizeOptions = () => (
     <Box sx={{ display: 'flex' }}>
       <Typography variant="subtitle2" sx={{ flexGrow: 1 }}>
-        Size
+        사이즈
       </Typography>
 
       <Field.Select
@@ -174,7 +169,7 @@ export function ProductDetailsSummary({
         size="small"
         helperText={
           <Link underline="always" color="text.primary">
-            Size chart
+            사이즈 가이드
           </Link>
         }
         sx={{
@@ -194,7 +189,7 @@ export function ProductDetailsSummary({
   const renderQuantity = () => (
     <Box sx={{ display: 'flex' }}>
       <Typography variant="subtitle2" sx={{ flexGrow: 1 }}>
-        Quantity
+        수량
       </Typography>
 
       <Stack spacing={1}>
@@ -211,7 +206,7 @@ export function ProductDetailsSummary({
           component="div"
           sx={{ textAlign: 'right', color: 'text.secondary' }}
         >
-          Available: {available}
+          구매 가능 수량: {available}
         </Typography>
       </Stack>
     </Box>
@@ -223,17 +218,17 @@ export function ProductDetailsSummary({
         fullWidth
         disabled={isMaxQuantity || disableActions}
         size="large"
-        color="warning"
-        variant="contained"
+        color="primary"
+        variant="outlined"
         startIcon={<Iconify icon="solar:cart-plus-bold" width={24} />}
         onClick={handleAddCart}
         sx={{ whiteSpace: 'nowrap' }}
       >
-        Add to cart
+        장바구니에 담기
       </Button>
 
       <Button fullWidth size="large" type="submit" variant="contained" disabled={disableActions}>
-        Buy now
+        바로 구매
       </Button>
     </Box>
   );
@@ -254,7 +249,7 @@ export function ProductDetailsSummary({
       }}
     >
       <Rating size="small" value={totalRatings} precision={0.1} readOnly sx={{ mr: 1 }} />
-      {`${totalReviews} reviews)`}
+      {`${totalReviews} 건`}
     </Box>
   );
 
@@ -274,7 +269,7 @@ export function ProductDetailsSummary({
         color:
           (inventoryType === 'out of stock' && 'error.main') ||
           (inventoryType === 'low stock' && 'warning.main') ||
-          'success.main',
+          'primary.main',
       }}
     >
       {inventoryType}
@@ -293,6 +288,7 @@ export function ProductDetailsSummary({
           {renderRating()}
           {renderPrice()}
           {renderSubDescription()}
+          {renderShare()}
         </Stack>
 
         <Divider sx={{ borderStyle: 'dashed' }} />
@@ -304,7 +300,6 @@ export function ProductDetailsSummary({
         <Divider sx={{ borderStyle: 'dashed' }} />
 
         {renderActions()}
-        {renderShare()}
       </Stack>
     </Form>
   );

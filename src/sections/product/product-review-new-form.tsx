@@ -5,8 +5,8 @@ import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
-import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
+import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import LoadingButton from '@mui/lab/LoadingButton';
 import DialogTitle from '@mui/material/DialogTitle';
@@ -20,13 +20,8 @@ import { Form, Field } from 'src/components/hook-form';
 export type ReviewSchemaType = zod.infer<typeof ReviewSchema>;
 
 export const ReviewSchema = zod.object({
-  rating: zod.number().min(1, 'Rating must be greater than or equal to 1!'),
-  name: zod.string().min(1, { message: 'Name is required!' }),
-  review: zod.string().min(1, { message: 'Review is required!' }),
-  email: zod
-    .string()
-    .min(1, { message: 'Email is required!' })
-    .email({ message: 'Email must be a valid email address!' }),
+  rating: zod.number().min(1, '별점을 선택해 주세요..'),
+  review: zod.string().min(1, { message: '리뷰를 작성해 주세요.' }),
 });
 
 // ----------------------------------------------------------------------
@@ -39,8 +34,6 @@ export function ProductReviewNewForm({ onClose, ...other }: Props) {
   const defaultValues: ReviewSchemaType = {
     rating: 0,
     review: '',
-    name: '',
-    email: '',
   };
 
   const methods = useForm<ReviewSchemaType>({
@@ -60,7 +53,6 @@ export function ProductReviewNewForm({ onClose, ...other }: Props) {
       await new Promise((resolve) => setTimeout(resolve, 500));
       reset();
       onClose();
-      console.info('DATA', data);
     } catch (error) {
       console.error(error);
     }
@@ -74,30 +66,25 @@ export function ProductReviewNewForm({ onClose, ...other }: Props) {
   return (
     <Dialog onClose={onClose} {...other}>
       <Form methods={methods} onSubmit={onSubmit}>
-        <DialogTitle> Add Review </DialogTitle>
+        <DialogTitle> 구매 후기 작성 </DialogTitle>
 
         <DialogContent>
           <div>
             <Typography variant="body2" sx={{ mb: 1 }}>
-              Your review about this product:
+              이 상품의 품질에 대해 얼마나 만족하시나요?
             </Typography>
             <Field.Rating name="rating" />
           </div>
-
-          <Field.Text name="review" label="Review *" multiline rows={3} sx={{ mt: 3 }} />
-
-          <Field.Text name="name" label="Name *" sx={{ mt: 3 }} />
-
-          <Field.Text name="email" label="Email *" sx={{ mt: 3 }} />
+          <Field.Text name="review" label="리뷰 작성란 *" multiline rows={6} sx={{ mt: 3 }} />
         </DialogContent>
 
         <DialogActions>
           <Button color="inherit" variant="outlined" onClick={onCancel}>
-            Cancel
+            취소
           </Button>
 
           <LoadingButton type="submit" variant="contained" loading={isSubmitting}>
-            Post
+            등록
           </LoadingButton>
         </DialogActions>
       </Form>

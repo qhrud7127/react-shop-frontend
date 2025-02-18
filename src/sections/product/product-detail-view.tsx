@@ -16,11 +16,12 @@ import { DashboardContent } from 'src/layouts/dashboard';
 import { paths } from '../../routes/paths';
 import { Iconify } from '../../components/iconify';
 import { RouterLink } from '../../routes/components';
+import {useCheckoutContext} from "../checkout/context";
 import { ProductDetailsSkeleton } from './product-skeleton';
 import { EmptyContent } from '../../components/empty-content';
-import {ProductDetailsReview} from "./product-details-review";
+import { ProductDetailsReview } from './product-details-review';
 import { ProductDetailsSummary } from './product-details-summary';
-import {ProductDetailsDescription} from "./product-details-description";
+import { ProductDetailsDescription } from './product-details-description';
 
 // ----------------------------------------------------------------------
 
@@ -37,6 +38,7 @@ export function ProductDetailView({ title = '', sx, product, error, loading }: P
   const [nav, setNav] = useState(undefined);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [slider, setSlider] = useState<any>(null);
+  const { state: checkoutState, onAddToCart } = useCheckoutContext();
 
   useEffect(() => {
     const getIcons = document.querySelectorAll('.slick-slide');
@@ -130,7 +132,14 @@ export function ProductDetailView({ title = '', sx, product, error, loading }: P
           </div>
         </Grid>
         <Grid size={{ xs: 12, md: 6, lg: 5 }}>
-          {product && <ProductDetailsSummary disableActions product={product} />}
+          {product && (
+            <ProductDetailsSummary
+              disableActions={!product?.available}
+              product={product}
+              items={checkoutState.items}
+              onAddToCart={onAddToCart}
+            />
+          )}
         </Grid>
       </Grid>
       <Card>
@@ -145,8 +154,8 @@ export function ProductDetailView({ title = '', sx, product, error, loading }: P
           ]}
         >
           {[
-            { value: 'description', label: 'Description' },
-            { value: 'reviews', label: `Reviews (${product?.reviews.length})` },
+            { value: 'description', label: '상품 상세' },
+            { value: 'reviews', label: `리뷰 (${product?.reviews.length})` },
           ].map((tab) => (
             <Tab key={tab.value} value={tab.value} label={tab.label} />
           ))}
