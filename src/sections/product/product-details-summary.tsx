@@ -237,7 +237,6 @@ export function ProductDetailsSummary({
         type="submit"
         variant="contained"
         disabled={disableActions}
-        href={paths.product.checkout}
       >
         바로 구매
       </Button>

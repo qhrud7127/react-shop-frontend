@@ -69,7 +69,7 @@ export function CheckoutCartProduct({ row, onDeleteCartItem, onChangeItemQuantit
           />
 
           <Typography variant="caption" sx={{ color: 'text.secondary', display: 'block', mt: 1 }}>
-            available: {row.available}
+            구매 가능 수량: {row.available}
           </Typography>
         </Box>
       </TableCell>
