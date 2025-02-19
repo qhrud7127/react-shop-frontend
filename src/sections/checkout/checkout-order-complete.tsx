@@ -11,11 +11,7 @@ import Typography from '@mui/material/Typography';
 import { paths } from 'src/routes/paths';
 import { RouterLink } from 'src/routes/components';
 
-import { OrderCompleteIllustration } from 'src/assets/illustrations';
-
 import { Iconify } from 'src/components/iconify';
-
-import { useCheckoutContext } from './context';
 
 // ----------------------------------------------------------------------
 
@@ -24,16 +20,8 @@ type Props = DialogProps & {
 };
 
 export function CheckoutOrderComplete({ onResetCart, ...other }: Props) {
-  const { loading, onChangeStep, state: checkoutState } = useCheckoutContext();
   return (
-    <Dialog
-      /*      sx={{
-        width: { md: `calc(100% - 48px)` },
-        height: { md: `calc(100% - 48px)` },
-      }}*/
-      fullWidth
-      {...other}
-    >
+    <Dialog fullWidth {...other}>
       <Box
         sx={{
           py: 5,
@@ -48,9 +36,11 @@ export function CheckoutOrderComplete({ onResetCart, ...other }: Props) {
         }}
       >
         {/*<Typography variant="h4">주문 완료</Typography>*/}
-        <Typography variant="h4" sx={{py:2}}>주문이 완료되었습니다.</Typography>
+        <Typography variant="h4" sx={{ py: 2 }}>
+          주문이 완료되었습니다.
+        </Typography>
 
-        <OrderCompleteIllustration />
+        <img src="/images/complete.png" width={300}/>
 
         <Typography>
           고객님의 주문번호는
