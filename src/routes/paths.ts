@@ -48,7 +48,7 @@ export const paths = {
   // PRODUCT
   product: {
     list: `${ROOTS.PRODUCT}/list`,
-    details: (id: number) => `${ROOTS.PRODUCT}/detail/${id}`,
+    details: (id: string) => `${ROOTS.PRODUCT}/detail/${id}`,
     checkout: `${ROOTS.PRODUCT}/checkout`,
     group: {
       root: `${ROOTS.DASHBOARD}/group`,

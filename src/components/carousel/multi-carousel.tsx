@@ -22,19 +22,10 @@ export const MultiCarousel = ({ settings }: Props) => (
   <Box className="slider-container" sx={{marginBottom:'30px'}}>
     <Slider {...settings}>
       <div>
-        <SampleImage shape="vertical" />
+        <SampleImage shape="vertical" width={400} height={500} />
       </div>
       <div>
-        <SampleImage shape="vertical" />
-      </div>
-      <div>
-        <SampleImage shape="vertical" />
-      </div>
-      <div>
-        <SampleImage shape="vertical" />
-      </div>
-      <div>
-        <SampleImage shape="vertical" />
+        <SampleImage shape="vertical" width={400} height={500} />
       </div>
     </Slider>
   </Box>

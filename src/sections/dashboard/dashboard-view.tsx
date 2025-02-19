@@ -1,6 +1,7 @@
 import type { Theme, SxProps } from '@mui/material/styles';
 
-import React from "react";
+import React from 'react';
+import Slider from 'react-slick';
 import { varAlpha } from 'minimal-shared/utils';
 
 import Box from '@mui/material/Box';
@@ -10,7 +11,6 @@ import Typography from '@mui/material/Typography';
 import { DashboardContent } from 'src/layouts/dashboard';
 
 import { MultiCarousel } from '../../components/carousel/multi-carousel';
-import { SingleCarousel } from '../../components/carousel/single-carousel';
 
 // ----------------------------------------------------------------------
 
@@ -43,7 +43,19 @@ export function DashboardView({ title = '', sx }: Props) {
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={4}>
         <Grid size={{ xs: 12, md: 12 }}>
-          <SingleCarousel settings={singleSettings} />
+          <Box className="slider-container" sx={{ marginBottom: '30px' }}>
+            <Slider {...singleSettings}>
+              <div>
+                <img width="100%" src="/images/beige.jpg" alt="sample" loading="lazy" />
+              </div>
+              <div>
+                <img width="100%" src="/images/green.jpg" alt="sample" loading="lazy" />
+              </div>
+              <div>
+                <img width="100%" src="/images/hologram.jpg" alt="sample" loading="lazy" />
+              </div>
+            </Slider>
+          </Box>
         </Grid>
         <Grid size={{ xs: 12, md: 12 }}>
           <Typography variant="h4" sx={{ margin: '10px' }}>

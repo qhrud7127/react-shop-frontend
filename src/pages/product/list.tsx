@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async';
 
 import { CONFIG } from 'src/global-config';
 
-import {ProductListView} from "../../sections/product/product-list-view";
+import {ProductListView} from "../../sections/product/view/product-list-view";
 
 
 

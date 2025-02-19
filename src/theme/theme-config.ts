@@ -37,7 +37,7 @@ export const themeConfig: ThemeConfig = {
    *************************************** */
   fontFamily: {
     primary: 'Noto Sans KR Variable',
-    secondary: 'Barlow',
+    secondary: 'Noto Sans KR Variable',
   },
   /** **************************************
    * Palette
