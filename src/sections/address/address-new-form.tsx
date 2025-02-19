@@ -1,6 +1,7 @@
 import type { IAddressItem } from 'src/types/common';
 
 import { z as zod } from 'zod';
+import {useEffect} from "react";
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { isValidPhoneNumber } from 'react-phone-number-input/input';
@@ -68,8 +69,11 @@ export function AddressNewForm({ open, onClose, onCreate }: Props) {
     formState: { isSubmitting },
   } = methods;
 
+  useEffect(() => {console.log(isSubmitting)})
+
   const onSubmit = handleSubmit(async (data) => {
     try {
+      console.log(data)
       onCreate({
         name: data.name,
         phoneNumber: data.phoneNumber,
@@ -86,7 +90,7 @@ export function AddressNewForm({ open, onClose, onCreate }: Props) {
   return (
     <Dialog fullWidth maxWidth="sm" open={open} onClose={onClose}>
       <Form methods={methods} onSubmit={onSubmit}>
-        <DialogTitle>New address</DialogTitle>
+        <DialogTitle>배송지 등록</DialogTitle>
 
         <DialogContent dividers>
           <Stack spacing={3}>
@@ -94,8 +98,8 @@ export function AddressNewForm({ open, onClose, onCreate }: Props) {
               row
               name="addressType"
               options={[
-                { label: 'Home', value: 'Home' },
-                { label: 'Office', value: 'Office' },
+                { label: '집', value: 'Home' },
+                { label: '회사', value: 'Office' },
               ]}
             />
 
@@ -107,12 +111,12 @@ export function AddressNewForm({ open, onClose, onCreate }: Props) {
                 gridTemplateColumns: { xs: 'repeat(1, 1fr)', sm: 'repeat(2, 1fr)' },
               }}
             >
-              <Field.Text name="name" label="Full name" />
+              <Field.Text name="name" label="이름" />
 
-              <Field.Phone name="phoneNumber" label="Phone number" country="US" />
+              <Field.Phone name="phoneNumber" label="휴대폰 번호" country="KR" />
             </Box>
 
-            <Field.Text name="address" label="Address" />
+            <Field.Text name="address" label="주소" />
 
             <Box
               sx={{
@@ -122,24 +126,24 @@ export function AddressNewForm({ open, onClose, onCreate }: Props) {
                 gridTemplateColumns: { xs: 'repeat(1, 1fr)', sm: 'repeat(3, 1fr)' },
               }}
             >
-              <Field.Text name="city" label="Town/city" />
+              <Field.Text name="city" label="시/군/구" />
 
-              <Field.Text name="state" label="State" />
+              <Field.Text name="state" label="동/읍/면" />
 
-              <Field.Text name="zipCode" label="Zip/code" />
+              <Field.Text name="zipCode" label="우편번호" />
             </Box>
 
-            <Field.Checkbox name="primary" label="Use this address as default." />
+            <Field.Checkbox name="primary" label="기본 배송지로 등록" />
           </Stack>
         </DialogContent>
 
         <DialogActions>
           <Button color="inherit" variant="outlined" onClick={onClose}>
-            Cancel
+            취소
           </Button>
 
           <LoadingButton type="submit" variant="contained" loading={isSubmitting}>
-            Deliver to this address
+            배송지 목록에 추가
           </LoadingButton>
         </DialogActions>
       </Form>

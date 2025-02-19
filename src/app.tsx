@@ -14,7 +14,8 @@ import { SettingsDrawer, defaultSettings, SettingsProvider } from 'src/component
 
 import { AuthProvider } from 'src/auth/context/jwt';
 
-import {CheckoutProvider} from "./sections/checkout/context";
+import { Snackbar } from './components/snackbar';
+import { CheckoutProvider } from './sections/checkout/context';
 
 // ----------------------------------------------------------------------
 
@@ -35,9 +36,10 @@ export default function App({ children }: AppProps) {
         >
           <MotionLazy>
             <CheckoutProvider>
+              <Snackbar />
               <ProgressBar />
-            <SettingsDrawer defaultSettings={defaultSettings} />
-            {children}
+              <SettingsDrawer defaultSettings={defaultSettings} />
+              {children}
             </CheckoutProvider>
           </MotionLazy>
         </ThemeProvider>

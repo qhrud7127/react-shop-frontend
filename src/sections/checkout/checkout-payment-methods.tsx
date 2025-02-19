@@ -8,18 +8,10 @@ import { Controller, useFormContext } from 'react-hook-form';
 
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import TextField from '@mui/material/TextField';
 import CardHeader from '@mui/material/CardHeader';
-import DialogTitle from '@mui/material/DialogTitle';
-import DialogContent from '@mui/material/DialogContent';
-import DialogActions from '@mui/material/DialogActions';
 import FormHelperText from '@mui/material/FormHelperText';
 
 import { Iconify } from 'src/components/iconify';
-
-import { PaymentNewCardForm } from '../payment/payment-new-card-form';
 
 // ----------------------------------------------------------------------
 
@@ -39,7 +31,7 @@ export function CheckoutPaymentMethods({ name, options, sx, ...other }: Props) {
   return (
     <>
       <Card sx={sx} {...other}>
-        <CardHeader title="Payment" />
+        <CardHeader title="결제 수단" />
 
         <Controller
           name={name}
@@ -78,7 +70,7 @@ export function CheckoutPaymentMethods({ name, options, sx, ...other }: Props) {
           )}
         />
       </Card>
-      <Dialog fullWidth maxWidth="xs" open={openForm.value} onClose={openForm.onFalse}>
+      {/*<Dialog fullWidth maxWidth="xs" open={openForm.value} onClose={openForm.onFalse}>
         <DialogTitle> Add new card </DialogTitle>
 
         <DialogContent sx={{ overflow: 'unset' }}>
@@ -94,7 +86,7 @@ export function CheckoutPaymentMethods({ name, options, sx, ...other }: Props) {
             Add
           </Button>
         </DialogActions>
-      </Dialog>
+      </Dialog>*/}
     </>
   );
 }
@@ -139,7 +131,7 @@ function OptionItem({
           p: 2.5,
           display: 'flex',
           cursor: 'pointer',
-          alignItems: 'flex-start',
+          alignItems: 'center',
         }}
       >
         <Box
@@ -158,18 +150,17 @@ function OptionItem({
         </Box>
 
         <Box sx={{ gap: 1, display: 'flex', alignItems: 'center' }}>
-          {option.value === 'creditcard' && (
-            <>
-              <Iconify icon="logos:mastercard" width={24} />
-              <Iconify icon="logos:visa" width={24} />
-            </>
+          {option.value === 'kakaopay' && (
+            <img src="/images/payment_icon_yellow_medium.png" alt="kakaopay" width={60} />
           )}
-          {option.value === 'paypal' && <Iconify icon="logos:paypal" width={24} />}
-          {option.value === 'cash' && <Iconify icon="solar:wad-of-money-bold" width={32} />}
+          {option.value === 'naverpay' && (
+            <img src="/images/badge_npay.svg" alt="naverpay" width={60} />
+          )}
+          {option.value === 'cash' && <Iconify icon="solar:cash-out-linear" width={32} />}
         </Box>
       </Box>
 
-      {isCredit && (
+    {/*  {isCredit && (
         <Box sx={{ px: 3 }}>
           <TextField select fullWidth label="Card" slotProps={{ select: { native: true } }}>
             {cardOptions.map((card) => (
@@ -189,7 +180,7 @@ function OptionItem({
             Add new card
           </Button>
         </Box>
-      )}
+      )}*/}
     </Box>
   );
 }

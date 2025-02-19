@@ -30,14 +30,14 @@ export function CheckoutBillingInfo({ checkoutState, onChangeStep, loading, sx, 
   return (
     <Card sx={[{ mb: 3 }, ...(Array.isArray(sx) ? sx : [sx])]} {...other}>
       <CardHeader
-        title="Address"
+        title="배송지"
         action={
           <Button
             size="small"
             startIcon={<Iconify icon="solar:pen-bold" />}
             onClick={() => onChangeStep('back')}
           >
-            Edit
+            수정
           </Button>
         }
       />

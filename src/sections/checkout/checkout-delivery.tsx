@@ -11,6 +11,8 @@ import CardHeader from '@mui/material/CardHeader';
 
 import { Iconify } from 'src/components/iconify';
 
+import { fCurrency } from '../../utils/format-number';
+
 // ----------------------------------------------------------------------
 
 type Props = CardProps & {
@@ -24,7 +26,7 @@ export function CheckoutDelivery({ name, options, onApplyShipping, sx, ...other 
 
   return (
     <Card sx={sx} {...other}>
-      <CardHeader title="Delivery" />
+      <CardHeader title="배송 방법" />
       <Controller
         name={name}
         control={control}
@@ -87,8 +89,8 @@ function OptionItem({ option, selected, sx, ...other }: OptionItemProps) {
       <Iconify
         width={28}
         icon={
-          (option.label === 'Standard' && 'carbon:delivery') ||
-          (option.label === 'Express' && 'carbon:rocket') ||
+          (option.id === 1 && 'carbon:delivery') ||
+          (option.id === 2 && 'carbon:rocket') ||
           'carbon:bicycle'
         }
       />
@@ -105,7 +107,7 @@ function OptionItem({ option, selected, sx, ...other }: OptionItemProps) {
             {option.label}
           </Box>
 
-          {`$${option.value}`}
+          {`${fCurrency(option.value)}`}
         </Box>
 
         <Box

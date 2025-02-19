@@ -18,6 +18,7 @@ export type ICheckoutItem = {
 };
 
 export type ICheckoutDeliveryOption = {
+  id: number;
   label: string;
   value: number;
   description: string;

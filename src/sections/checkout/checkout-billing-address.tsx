@@ -66,7 +66,7 @@ export function CheckoutBillingAddress() {
               onClick={() => onChangeStep('back')}
               startIcon={<Iconify icon="eva:arrow-ios-back-fill" />}
             >
-              Back
+              이전
             </Button>
 
             <Button
@@ -75,7 +75,7 @@ export function CheckoutBillingAddress() {
               onClick={addressForm.onTrue}
               startIcon={<Iconify icon="mingcute:add-line" />}
             >
-              New address
+              새 배송지 등록
             </Button>
           </Box>
         </Grid>

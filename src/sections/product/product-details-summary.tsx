@@ -1,4 +1,5 @@
 import { useCallback } from 'react';
+import {useBoolean} from "minimal-shared/hooks";
 import { useForm, Controller } from 'react-hook-form';
 
 import Box from '@mui/material/Box';
@@ -18,6 +19,7 @@ import { Label } from 'src/components/label';
 import { Iconify } from 'src/components/iconify';
 import { Form, Field } from 'src/components/hook-form';
 
+import {MoveToCartPopup} from "../checkout/move-to-cart";
 import { fLocaleNumber } from '../../utils/format-number';
 import { ColorPicker } from '../../components/color-utils';
 import { NumberInput } from '../../components/number-input';
@@ -81,6 +83,7 @@ export function ProductDetailsSummary({
   });
 
   const { watch, control, setValue, handleSubmit } = methods;
+  const openPopup = useBoolean();
 
   const values = watch();
 
@@ -104,11 +107,11 @@ export function ProductDetailsSummary({
         colors: [values.colors],
         subtotal: values.price * values.quantity,
       });
-      router.push(paths.product.checkout);
+      openPopup.onTrue();
     } catch (error) {
       console.error(error);
     }
-  }, [onAddToCart, values]);
+  }, [onAddToCart, openPopup, values]);
 
   const renderPrice = () => <Box sx={{ typography: 'h5' }}> {fLocaleNumber(price)} 원</Box>;
 
@@ -309,6 +312,10 @@ export function ProductDetailsSummary({
 
         {renderActions()}
       </Stack>
+      <MoveToCartPopup
+        open={openPopup.value}
+        onClose={openPopup.onFalse}
+      />
     </Form>
   );
 }
