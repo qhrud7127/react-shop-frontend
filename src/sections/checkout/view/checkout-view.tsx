@@ -33,7 +33,7 @@ export function CheckoutView() {
         {activeStep === 2 && <CheckoutPayment />}
 
         {completed && (
-          <CheckoutOrderComplete open onResetCart={onResetCart} onDownloadPDF={() => {}} />
+          <CheckoutOrderComplete open onResetCart={onResetCart} />
         )}
       </>
     </Container>

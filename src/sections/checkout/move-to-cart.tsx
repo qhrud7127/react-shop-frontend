@@ -1,12 +1,12 @@
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import Typography from '@mui/material/Typography';
-import LoadingButton from '@mui/lab/LoadingButton';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 
 import { paths } from '../../routes/paths';
+import {RouterLink} from "../../routes/components";
 
 // ----------------------------------------------------------------------
 
@@ -23,7 +23,7 @@ export function MoveToCartPopup({ open, onClose }: Props) {
       <DialogTitle>장바구니 담기</DialogTitle>
 
       <DialogContent dividers>
-        <Typography variant="body1">장바구니에 상품이 정상적으로 담겼습니다.</Typography>
+        <Typography sx={{py:3}} variant="body1">장바구니에 상품이 정상적으로 담겼습니다.</Typography>
       </DialogContent>
 
       <DialogActions>
@@ -31,9 +31,9 @@ export function MoveToCartPopup({ open, onClose }: Props) {
           쇼핑 계속하기
         </Button>
 
-        <LoadingButton variant="contained" href={paths.product.checkout} sx={{ ml: 2 }} >
+        <Button component={RouterLink} variant="contained" href={paths.product.checkout} sx={{ ml: 2 }} >
           장바구니로 이동
-        </LoadingButton>
+        </Button>
       </DialogActions>
     </Dialog>
   );
