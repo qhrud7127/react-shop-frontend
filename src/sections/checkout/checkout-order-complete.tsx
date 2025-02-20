@@ -13,6 +13,8 @@ import { RouterLink } from 'src/routes/components';
 
 import { Iconify } from 'src/components/iconify';
 
+import {_mock} from "../../_mock";
+
 // ----------------------------------------------------------------------
 
 type Props = DialogProps & {
@@ -20,6 +22,7 @@ type Props = DialogProps & {
 };
 
 export function CheckoutOrderComplete({ onResetCart, ...other }: Props) {
+  const orderId = _mock.id(4);
   return (
     <Dialog fullWidth {...other}>
       <Box
@@ -40,11 +43,13 @@ export function CheckoutOrderComplete({ onResetCart, ...other }: Props) {
           주문이 완료되었습니다.
         </Typography>
 
-        <img src="/images/complete.png" width={300}/>
+        <img src="/images/complete.png" width={300} />
 
         <Typography>
           고객님의 주문번호는
-          <Link sx={{ px: 1 }}>202564811638845</Link>
+          <Link sx={{ px: 1 }} href={paths.product.order(orderId)}>
+            {_mock.id(1)}
+          </Link>
           입니다.
         </Typography>
         <Divider sx={{ width: 1, borderStyle: 'dashed' }} />
@@ -69,7 +74,7 @@ export function CheckoutOrderComplete({ onResetCart, ...other }: Props) {
           </Button>
           <Button
             component={RouterLink}
-            href={paths.dashboard.root}
+            href={paths.product.order(orderId)}
             size="large"
             variant="contained"
             onClick={onResetCart}

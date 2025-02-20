@@ -3,10 +3,10 @@ import { _mock } from './_mock';
 // ----------------------------------------------------------------------
 
 export const ORDER_STATUS_OPTIONS = [
-  { value: 'pending', label: 'Pending' },
-  { value: 'completed', label: 'Completed' },
-  { value: 'cancelled', label: 'Cancelled' },
-  { value: 'refunded', label: 'Refunded' },
+  { value: 'pending', label: '주문완료' },
+  { value: 'completed', label: '배송완료' },
+  { value: 'cancelled', label: '취소완료' },
+  { value: 'refunded', label: '환불완료' },
 ];
 
 const ITEMS = Array.from({ length: 3 }, (_, index) => ({
@@ -41,19 +41,19 @@ export const _orders = Array.from({ length: 20 }, (_, index) => {
     ipAddress: '192.158.1.38',
   };
 
-  const delivery = { shipBy: 'DHL', speedy: 'Standard', trackingNumber: 'SPX037739199373' };
+  const delivery = { shipBy: '대한통운', speedy: '일반 배송', trackingNumber: '37739199373' };
 
   const history = {
-    orderTime: _mock.time(1),
-    paymentTime: _mock.time(2),
-    deliveryTime: _mock.time(3),
-    completionTime: _mock.time(4),
+    orderTime: _mock.time(5),
+    paymentTime: _mock.time(3),
+    deliveryTime: _mock.time(2),
+    completionTime: _mock.time(1),
     timeline: [
-      { title: 'Delivery successful', time: _mock.time(1) },
-      { title: 'Transporting to [2]', time: _mock.time(2) },
-      { title: 'Transporting to [1]', time: _mock.time(3) },
-      { title: 'The shipping unit has picked up the goods', time: _mock.time(4) },
-      { title: 'Order has been created', time: _mock.time(5) },
+      { title: '주문이 완료되었습니다.', time: _mock.time(5) },
+      { title: '배송중(입고) 남서울 ', time: _mock.time(4) },
+      { title: '배송중(출고) 남서울 ', time: _mock.time(3) },
+      { title: '배달중', time: _mock.time(2) },
+      { title: '배송이 완료되었습니다.', time: _mock.time(1) },
     ],
   };
 
@@ -72,10 +72,10 @@ export const _orders = Array.from({ length: 20 }, (_, index) => {
     totalAmount,
     totalQuantity,
     shippingAddress: {
-      fullAddress: '19034 Verna Unions Apt. 164 - Honolulu, RI / 87535',
-      phoneNumber: '365-374-4961',
+      fullAddress: '서울특별시 용산구 후암로 107',
+      phoneNumber: '010-1231-4961',
     },
-    payment: { cardType: 'mastercard', cardNumber: '**** **** **** 5678' },
+    payment: { cardType: 'kakaopay', cardNumber: '**** **** **** 5678' },
     status:
       (index % 2 && 'completed') ||
       (index % 3 && 'pending') ||

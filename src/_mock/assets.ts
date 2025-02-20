@@ -2,7 +2,7 @@
 
 export const _id = Array.from(
   { length: 40 },
-  (_, index) => `e99f09a7-dd88-49d5-b1c8-1daf80c2d7b${index + 1}`
+  (_, index) => `e99f09a7-b1c8-1daf80c2d7b${index + 1}`
 );
 
 // ----------------------------------------------------------------------
