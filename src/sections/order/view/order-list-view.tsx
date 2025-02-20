@@ -1,3 +1,4 @@
+import type { SyntheticEvent } from 'react';
 import type { TableHeadCellProps } from 'src/components/table';
 import type { IOrderItem, IOrderTableFilters } from 'src/types/order';
 
@@ -45,15 +46,15 @@ import { OrderTableFiltersResult } from '../order-table-filters-result';
 
 // ----------------------------------------------------------------------
 
-const STATUS_OPTIONS = [{ value: 'all', label: 'All' }, ...ORDER_STATUS_OPTIONS];
+const STATUS_OPTIONS = [{ value: 'all', label: '전체' }, ...ORDER_STATUS_OPTIONS];
 
 const TABLE_HEAD: TableHeadCellProps[] = [
-  { id: 'orderNumber', label: 'Order', width: 88 },
-  { id: 'name', label: 'Customer' },
-  { id: 'createdAt', label: 'Date', width: 140 },
-  { id: 'totalQuantity', label: 'Items', width: 120, align: 'center' },
-  { id: 'totalAmount', label: 'Price', width: 140 },
-  { id: 'status', label: 'Status', width: 110 },
+  { id: 'orderNumber', label: '주문번호', width: 120 },
+  { id: 'name', label: '고객' },
+  { id: 'createdAt', label: '주문일자', width: 140 },
+  { id: 'totalQuantity', label: '수량', width: 120, align: 'center' },
+  { id: 'totalAmount', label: '금액', width: 140 },
+  { id: 'status', label: '상태', width: 110 },
   { id: '', width: 88 },
 ];
 
@@ -96,7 +97,7 @@ export const OrderListView = () => {
     (id: string) => {
       const deleteRow = tableData.filter((row) => row.id !== id);
 
-      toast.success('Delete success!');
+      toast.success('삭제되었습니다.');
 
       setTableData(deleteRow);
 
@@ -108,7 +109,7 @@ export const OrderListView = () => {
   const handleDeleteRows = useCallback(() => {
     const deleteRows = tableData.filter((row) => !table.selected.includes(row.id));
 
-    toast.success('Delete success!');
+    toast.success('삭제되었습니다.');
 
     setTableData(deleteRows);
 
@@ -116,7 +117,7 @@ export const OrderListView = () => {
   }, [dataFiltered.length, dataInPage.length, table, tableData]);
 
   const handleFilterStatus = useCallback(
-    (event: React.SyntheticEvent, newValue: string) => {
+    (event: SyntheticEvent, newValue: string) => {
       table.onResetPage();
       updateFilters({ status: newValue });
     },
@@ -127,10 +128,10 @@ export const OrderListView = () => {
     <ConfirmDialog
       open={confirmDialog.value}
       onClose={confirmDialog.onFalse}
-      title="Delete"
+      title="삭제"
       content={
         <>
-          Are you sure want to delete <strong> {table.selected.length} </strong> items?
+          선택하신 주문 목록 <strong> {table.selected.length} </strong>개를 삭제하시겠습니까?
         </>
       }
       action={
@@ -142,12 +143,11 @@ export const OrderListView = () => {
             confirmDialog.onFalse();
           }}
         >
-          Delete
+          삭제
         </Button>
       }
     />
   );
-
   return (
     <>
       <DashboardContent>
@@ -217,7 +217,7 @@ export const OrderListView = () => {
                 )
               }
               action={
-                <Tooltip title="Delete">
+                <Tooltip title="삭제">
                   <IconButton color="primary" onClick={confirmDialog.onTrue}>
                     <Iconify icon="solar:trash-bin-trash-bold" />
                   </IconButton>

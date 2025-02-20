@@ -27,6 +27,8 @@ import { Iconify } from 'src/components/iconify';
 import { ConfirmDialog } from 'src/components/custom-dialog';
 import { CustomPopover } from 'src/components/custom-popover';
 
+import { ORDER_STATUS_OPTIONS } from '../../_mock';
+
 // ----------------------------------------------------------------------
 
 type Props = {
@@ -105,7 +107,7 @@ export function OrderTableRow({ row, selected, onSelectRow, onDeleteRow, details
             'default'
           }
         >
-          {row.status}
+          {ORDER_STATUS_OPTIONS.find((e) => e.value === row.status)?.label}
         </Label>
       </TableCell>
 
@@ -193,28 +195,28 @@ export function OrderTableRow({ row, selected, onSelectRow, onDeleteRow, details
           sx={{ color: 'error.main' }}
         >
           <Iconify icon="solar:trash-bin-trash-bold" />
-          Delete
+          삭제
         </MenuItem>
 
         <li>
           <MenuItem component={RouterLink} href={detailsHref} onClick={() => menuActions.onClose()}>
             <Iconify icon="solar:eye-bold" />
-            View
+            상세보기
           </MenuItem>
         </li>
       </MenuList>
     </CustomPopover>
   );
 
-  const renderConfrimDialog = () => (
+  const renderConfirmDialog = () => (
     <ConfirmDialog
       open={confirmDialog.value}
       onClose={confirmDialog.onFalse}
-      title="Delete"
-      content="Are you sure want to delete?"
+      title="삭제"
+      content="해당 주문을 삭제하시겠습니까?"
       action={
         <Button variant="contained" color="error" onClick={onDeleteRow}>
-          Delete
+          삭제
         </Button>
       }
     />
@@ -225,7 +227,7 @@ export function OrderTableRow({ row, selected, onSelectRow, onDeleteRow, details
       {renderPrimaryRow()}
       {renderSecondaryRow()}
       {renderMenuActions()}
-      {renderConfrimDialog()}
+      {renderConfirmDialog()}
     </>
   );
 }

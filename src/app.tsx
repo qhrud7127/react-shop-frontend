@@ -15,6 +15,7 @@ import { SettingsDrawer, defaultSettings, SettingsProvider } from 'src/component
 import { AuthProvider } from 'src/auth/context/jwt';
 
 import { Snackbar } from './components/snackbar';
+import { LocalizationProvider } from './locales';
 import { CheckoutProvider } from './sections/checkout/context';
 
 // ----------------------------------------------------------------------
@@ -28,22 +29,24 @@ export default function App({ children }: AppProps) {
 
   return (
     <AuthProvider>
-      <SettingsProvider defaultSettings={defaultSettings}>
-        <ThemeProvider
-          noSsr
-          defaultMode={themeConfig.defaultMode}
-          modeStorageKey={themeConfig.modeStorageKey}
-        >
-          <MotionLazy>
-            <CheckoutProvider>
-              <Snackbar />
-              <ProgressBar />
-              <SettingsDrawer defaultSettings={defaultSettings} />
-              {children}
-            </CheckoutProvider>
-          </MotionLazy>
-        </ThemeProvider>
-      </SettingsProvider>
+      <LocalizationProvider>
+        <SettingsProvider defaultSettings={defaultSettings}>
+          <ThemeProvider
+            noSsr
+            defaultMode={themeConfig.defaultMode}
+            modeStorageKey={themeConfig.modeStorageKey}
+          >
+            <MotionLazy>
+              <CheckoutProvider>
+                <Snackbar />
+                <ProgressBar />
+                <SettingsDrawer defaultSettings={defaultSettings} />
+                {children}
+              </CheckoutProvider>
+            </MotionLazy>
+          </ThemeProvider>
+        </SettingsProvider>
+      </LocalizationProvider>
     </AuthProvider>
   );
 }

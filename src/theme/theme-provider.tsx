@@ -1,6 +1,7 @@
 import type { Theme } from '@mui/material/styles';
 import type { ThemeProviderProps as MuiThemeProviderProps } from '@mui/material/styles/ThemeProvider';
 
+import {koKR} from "@mui/material/locale";
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider as ThemeVarsProvider } from '@mui/material/styles';
 
@@ -25,6 +26,7 @@ export function ThemeProvider({ themeOverrides, children, ...other }: ThemeProvi
   const theme = createTheme({
     settingsState: settings.state,
     themeOverrides,
+    localeComponents: koKR
   });
 
   return (

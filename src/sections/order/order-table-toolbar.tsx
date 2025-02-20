@@ -64,17 +64,7 @@ export function OrderTableToolbar({ filters, onResetPage, dateError }: Props) {
       <MenuList>
         <MenuItem onClick={() => menuActions.onClose()}>
           <Iconify icon="solar:printer-minimalistic-bold" />
-          Print
-        </MenuItem>
-
-        <MenuItem onClick={() => menuActions.onClose()}>
-          <Iconify icon="solar:import-bold" />
-          Import
-        </MenuItem>
-
-        <MenuItem onClick={() => menuActions.onClose()}>
-          <Iconify icon="solar:export-bold" />
-          Export
+          인쇄
         </MenuItem>
       </MenuList>
     </CustomPopover>
@@ -93,7 +83,7 @@ export function OrderTableToolbar({ filters, onResetPage, dateError }: Props) {
         }}
       >
         <DatePicker
-          label="Start date"
+          label="시작일"
           value={currentFilters.startDate}
           onChange={handleFilterStartDate}
           slotProps={{ textField: { fullWidth: true } }}
@@ -101,14 +91,14 @@ export function OrderTableToolbar({ filters, onResetPage, dateError }: Props) {
         />
 
         <DatePicker
-          label="End date"
+          label="종료일"
           value={currentFilters.endDate}
           onChange={handleFilterEndDate}
           slotProps={{
             textField: {
               fullWidth: true,
               error: dateError,
-              helperText: dateError ? 'End date must be later than start date' : null,
+              helperText: dateError ? '종료일은 시작일 보다 뒤여야 합니다.' : null,
             },
           }}
           sx={{
@@ -133,7 +123,7 @@ export function OrderTableToolbar({ filters, onResetPage, dateError }: Props) {
             fullWidth
             value={currentFilters.name}
             onChange={handleFilterName}
-            placeholder="Search customer or order number..."
+            placeholder="고객명/주문번호로 검색하세요"
             slotProps={{
               input: {
                 startAdornment: (
