@@ -107,12 +107,7 @@ export const _emails = [
 
 // ----------------------------------------------------------------------
 
-export const _fullNames = [
-  `김보경`,
-  `김동범`,
-  `김보경`,
-  `김동남`,
-];
+export const _fullNames = [`김보경`, `김동범`, `김보경`, `김동남`];
 
 export const _firstNames = [
   `Mossie`,
@@ -285,30 +280,30 @@ export const _postTitles = [
 // ----------------------------------------------------------------------
 
 export const _productNames = [
-  `Urban Explorer Sneakers`,
-  `Classic Leather Loafers`,
-  `Mountain Trekking Boots`,
-  `Elegance Stiletto Heels`,
-  `Comfy Running Shoes`,
-  `Chic Ballet Flats`,
-  `Vintage Oxford Shoes`,
-  `Waterproof Hiking Boots`,
-  `Casual Slip-On Sneakers`,
-  `Premium Dress Shoes`,
-  `Sporty Trail Runners`,
-  `Sophisticated Brogues`,
-  `Beach Sandals`,
-  `Stylish Wedge Heels`,
-  `Lightweight Training Shoes`,
-  `Luxurious Moccasins`,
-  `Durable Work Boots`,
-  `Trendy Platform Sneakers`,
-  `Cozy Winter Boots`,
-  `Fashion Ankle Boots`,
-  `Breathable Tennis Shoes`,
-  `Elegant Evening Pumps`,
-  `Modern Skate Shoes`,
-  `Comfortable Walking Shoes`,
+  `프리미엄 피그 스웨이드 Classic Slip-On 클래식 슬립온 98`,
+  `반스 프리미엄 Old Skool 올드스쿨 36`,
+  `컬러 띠어리 Classic Slip-On 클래식 슬립온`,
+  `반스 프리미엄 SK8-Hi 스케이트-하이 리이슈 38 LX`,
+  `Authentic Lowpro 어센틱 로우 프로`,
+  `Old Skool Lowpro 올드스쿨 로우 프로`,
+  `Skate Slip-On 스케이트 슬립온`,
+  `Skate Rowan 스케이트 로완 2`,
+  `Skate Rowley 스케이트 로울리`,
+  `프리미엄 피그 스웨이드 Classic Slip-On 클래식 슬립온 98`,
+  `반스 프리미엄 Old Skool 올드스쿨 36`,
+  `컬러 띠어리 Classic Slip-On 클래식 슬립온`,
+  `반스 프리미엄 SK8-Hi 스케이트-하이 리이슈 38 LX`,
+  `Authentic Lowpro 어센틱 로우 프로`,
+  `Old Skool Lowpro 올드스쿨 로우 프로`,
+  `Skate Slip-On 스케이트 슬립온`,
+  `Skate Rowan 스케이트 로완 2`,
+  `Skate Rowley 스케이트 로울리`,
+  `Authentic Lowpro 어센틱 로우 프로`,
+  `Old Skool Lowpro 올드스쿨 로우 프로`,
+  `Skate Slip-On 스케이트 슬립온`,
+  `Skate Rowan 스케이트 로완 2`,
+  `Skate Rowley 스케이트 로울리`,
+  `Old Skool Lowpro 올드스쿨 로우 프로`,
 ];
 
 // ----------------------------------------------------------------------

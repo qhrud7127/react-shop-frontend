@@ -19,6 +19,7 @@ type Props = BoxProps & {
 export function ProductList({ products, loading, sx, ...other }: Props) {
   const renderLoading = () => <ProductItemSkeleton />;
 
+  console.log(products);
   const renderList = () =>
     products.map((product) => (
       <ProductItem

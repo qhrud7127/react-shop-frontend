@@ -22,10 +22,12 @@ type ProductsData = {
 
 export function useGetProducts() {
   const url = endpoints.product.list;
+  console.log(url);
 
   const { data, isLoading, error, isValidating } = useSWR<ProductsData>(url, fetcher, swrOptions);
+  console.log(data);
 
-  const memoizedValue = useMemo(
+  return useMemo(
     () => ({
       products: data?.products || [],
       productsLoading: isLoading,
@@ -35,8 +37,6 @@ export function useGetProducts() {
     }),
     [data?.products, error, isLoading, isValidating]
   );
-
-  return memoizedValue;
 }
 
 // ----------------------------------------------------------------------
@@ -50,7 +50,7 @@ export function useGetProduct(productId: string) {
 
   const { data, isLoading, error, isValidating } = useSWR<ProductData>(url, fetcher, swrOptions);
 
-  const memoizedValue = useMemo(
+  return useMemo(
     () => ({
       product: data?.product,
       productLoading: isLoading,
@@ -59,8 +59,6 @@ export function useGetProduct(productId: string) {
     }),
     [data?.product, error, isLoading, isValidating]
   );
-
-  return memoizedValue;
 }
 
 // ----------------------------------------------------------------------

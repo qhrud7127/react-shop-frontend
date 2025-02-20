@@ -1,4 +1,5 @@
 import React from 'react';
+import { toast } from 'sonner';
 
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
@@ -40,6 +41,7 @@ export const ProductItem = ({ product, detailsHref }: Props) => {
       quantity: 1,
     };
     try {
+      toast.success('장바구니에 상품을 담았습니다.');
       onAddToCart(newProduct);
     } catch (error) {
       console.error(error);
@@ -77,7 +79,7 @@ export const ProductItem = ({ product, detailsHref }: Props) => {
       {!!available && (
         <Fab
           size="medium"
-          color="warning"
+          color="default"
           onClick={handleAddCart}
           sx={[
             (theme) => ({
@@ -143,36 +145,6 @@ export const ProductItem = ({ product, detailsHref }: Props) => {
       {renderLabels()}
       {renderImage()}
       {renderContent()}
-      {/*
-      <Link href={paths.product.details(index)} color="inherit">
-        <Stack>
-          <Box
-            sx={{
-              background: 'url(../images/ico_bedge01.png) 0 0/cover no-repeat',
-              zIndex: 11,
-              position: 'absolute',
-              width: '35px',
-              height: '35px',
-              fontSize: '18px',
-              color: '#fff',
-              lineHeight: 1.7,
-              textAlign: 'center',
-            }}
-          >
-            {index}
-          </Box>
-          <img src={path} alt="sample" loading="lazy" style={{}} />
-
-          <Typography variant="subtitle1" sx={{ fontWeight: 'bold', my: 1 }}>
-            태그호이어
-          </Typography>
-          <Typography variant="body2">까레라 (남성용)</Typography>
-          <Rating name="read-only" value={4.5} readOnly precision={0.5} sx={{ my: 1 }} />
-          <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-            59,900원
-          </Typography>
-        </Stack>
-      </Link>*/}
     </Card>
   );
 };
