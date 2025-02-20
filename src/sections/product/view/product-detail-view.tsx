@@ -1,5 +1,3 @@
-import type { Theme, SxProps } from '@mui/material/styles';
-
 import Slider from 'react-slick';
 import { useTabs } from 'minimal-shared';
 import { varAlpha } from 'minimal-shared/utils';
@@ -16,7 +14,7 @@ import { DashboardContent } from 'src/layouts/dashboard';
 import { paths } from '../../../routes/paths';
 import { Iconify } from '../../../components/iconify';
 import { RouterLink } from '../../../routes/components';
-import {useCheckoutContext} from "../../checkout/context";
+import { useCheckoutContext } from '../../checkout/context';
 import { ProductDetailsSkeleton } from '../product-skeleton';
 import { EmptyContent } from '../../../components/empty-content';
 import { ProductDetailsReview } from '../product-details-review';
@@ -26,14 +24,12 @@ import { ProductDetailsDescription } from '../product-details-description';
 // ----------------------------------------------------------------------
 
 type Props = {
-  title?: string;
   product?: any;
   loading?: boolean;
   error?: any;
-  sx?: SxProps<Theme>;
 };
 
-export function ProductDetailView({ title = '', sx, product, error, loading }: Props) {
+export function ProductDetailView({ product, error, loading }: Props) {
   const tabs = useTabs('description');
   const [nav, setNav] = useState(undefined);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -42,15 +38,12 @@ export function ProductDetailView({ title = '', sx, product, error, loading }: P
 
   useEffect(() => {
     const getIcons = document.querySelectorAll('.slick-slide');
-    console.log(getIcons);
     getIcons.forEach(function (iconEach) {
       const getIconAttr = iconEach.getAttribute('aria-hidden');
       if (!getIconAttr) {
         iconEach.setAttribute('aria-hidden', 'false');
       }
     });
-    console.log(slider);
-    console.log(nav);
     setNav(slider);
   }, [slider]);
 
