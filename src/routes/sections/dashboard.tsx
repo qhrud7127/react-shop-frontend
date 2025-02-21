@@ -20,6 +20,9 @@ const ProductDetailPage = lazy(() => import('src/pages/product/detail'));
 const ProductCheckoutPage = lazy(() => import('src/pages/product/checkout'));
 const OrderListPage = lazy(() => import('src/pages/order/list'));
 const OrderDetailPage = lazy(() => import('src/pages/order/detail'));
+const ProductListManagePage = lazy(() => import('src/pages/product/list-manage'));
+const ProductNewPage = lazy(() => import('src/pages/product/new'));
+const ProductEditPage = lazy(() => import('src/pages/product/edit'));
 
 // ----------------------------------------------------------------------
 
@@ -49,19 +52,25 @@ export const dashboardRoutes: RouteObject[] = [
     element: CONFIG.auth.skip ? dashboardLayout() : <AuthGuard>{dashboardLayout()}</AuthGuard>,
     children: [
       { index: true, element: <ProductListPage /> },
-      { path: 'list', element: <ProductListPage /> },
-      { path: 'detail/:id', element: <ProductDetailPage /> },
-      { path: 'checkout', element: <ProductCheckoutPage /> },
-      { path: 'order/detail/:id', element: <OrderDetailPage /> },
-      { path: 'order/list', element: <OrderListPage /> },
-      /* {
-        path: 'group',
+      {
+        path: 'list',
         children: [
-          { element: <PageFour />, index: true },
-          { path: 'five', element: <PageFive /> },
-          { path: 'six', element: <PageSix /> },
+          { element: <ProductListPage />, index: true },
+          { path: 'manage', element: <ProductListManagePage /> },
         ],
-      },*/
+      },
+      { path: 'new', element: <ProductNewPage /> },
+      { path: 'detail/:id', element: <ProductDetailPage /> },
+      { path: 'edit/:id', element: <ProductEditPage /> },
+      { path: 'checkout', element: <ProductCheckoutPage /> },
+      {
+        path: 'order',
+        children: [
+          { element: <OrderListPage />, index: true },
+          { path: 'detail/:id', element: <OrderDetailPage /> },
+          { path: 'list', element: <OrderListPage /> },
+        ],
+      },
     ],
   },
 ];

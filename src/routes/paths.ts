@@ -4,6 +4,7 @@ const ROOTS = {
   AUTH: '/auth',
   DASHBOARD: '/dashboard',
   PRODUCT: '/product',
+  MANAGE: '/manage',
 };
 
 // ----------------------------------------------------------------------
@@ -47,13 +48,19 @@ export const paths = {
   },
   // PRODUCT
   product: {
-    list: `${ROOTS.PRODUCT}/list`,
+    root: `${ROOTS.PRODUCT}`,
+    list: {
+      root: `${ROOTS.PRODUCT}/list`,
+      manage: `${ROOTS.PRODUCT}/list/manage`,
+    },
+    new: `${ROOTS.PRODUCT}/new`,
     details: (id: string) => `${ROOTS.PRODUCT}/detail/${id}`,
+    edit: (id: string) => `${ROOTS.PRODUCT}/edit/${id}`,
     checkout: `${ROOTS.PRODUCT}/checkout`,
     order: {
-      detail: (id: string) => `${ROOTS.PRODUCT}/order/detail/${id}`,
+      root: `${ROOTS.PRODUCT}/order`,
       list: `${ROOTS.PRODUCT}/order/list`,
-      six: `${ROOTS.DASHBOARD}/group/six`,
+      detail: (id: string) => `${ROOTS.PRODUCT}/order/detail/${id}`,
     },
   },
 };

@@ -3,14 +3,9 @@ import type { Theme, Components } from '@mui/material/styles';
 
 import { createTheme as createMuiTheme } from '@mui/material/styles';
 
-import { mixins } from './core/mixins';
-import { shadows } from './core/shadows';
-import { palette } from './core/palette';
 import { themeConfig } from './theme-config';
-import { components } from './core/components';
-import { typography } from './core/typography';
-import { customShadows } from './core/custom-shadows';
 import { updateCoreWithSettings, updateComponentsWithSettings } from './with-settings';
+import { mixins, palette, shadows, components, typography, customShadows } from './core';
 
 import type { ThemeOptions } from './types';
 
@@ -59,8 +54,11 @@ export function createTheme({
     ? updateComponentsWithSettings(components, settingsState)
     : {};
 
+  console.log(settingsState);
+
   // Create and return the final theme
   const theme = createMuiTheme(updatedCore, updatedComponents, localeComponents, themeOverrides);
+  console.log(theme);
 
   return theme;
 }

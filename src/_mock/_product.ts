@@ -45,14 +45,14 @@ export const PRODUCT_SIZE_OPTIONS = [
 ];
 
 export const PRODUCT_STOCK_OPTIONS = [
-  { value: 'in stock', label: 'In stock' },
-  { value: 'low stock', label: 'Low stock' },
-  { value: 'out of stock', label: 'Out of stock' },
+  { value: 'in stock', label: '재고 있음' },
+  { value: 'low stock', label: '재고 부족' },
+  { value: 'out of stock', label: '품절' },
 ];
 
 export const PRODUCT_PUBLISH_OPTIONS = [
-  { value: 'published', label: 'Published' },
-  { value: 'draft', label: 'Draft' },
+  { value: 'published', label: '게시됨' },
+  { value: 'draft', label: '초안' },
 ];
 
 export const PRODUCT_SORT_OPTIONS = [

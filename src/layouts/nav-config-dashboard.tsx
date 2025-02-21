@@ -57,7 +57,7 @@ export const navData: NavSectionProps['data'] = [
       },
       {
         title: '베스트',
-        path: paths.product.list,
+        path: paths.product.list.root,
         icon: ICONS.dashboard,
         // info: <Label>v{CONFIG.appVersion}</Label>,
       },/*
