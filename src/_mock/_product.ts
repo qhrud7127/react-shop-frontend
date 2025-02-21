@@ -1,7 +1,7 @@
 export const PRODUCT_GENDER_OPTIONS = [
-  { label: 'Men', value: 'Men' },
-  { label: 'Women', value: 'Women' },
-  { label: 'Kids', value: 'Kids' },
+  { label: '남성', value: 'Men' },
+  { label: '여성', value: 'Women' },
+  { label: '아동', value: 'Kids' },
 ];
 
 export const PRODUCT_CATEGORY_OPTIONS = ['Shose', 'Apparel', 'Accessories'];
@@ -20,15 +20,16 @@ export const PRODUCT_COLOR_OPTIONS = [
 ];
 
 export const PRODUCT_COLOR_NAME_OPTIONS = [
-  { value: '#FF4842', label: 'Red' },
-  { value: '#1890FF', label: 'Blue' },
-  { value: '#FFC0CB', label: 'Pink' },
-  { value: '#00AB55', label: 'Green' },
-  { value: '#FFC107', label: 'Yellow' },
-  { value: '#7F00FF', label: 'Violet' },
-  { value: '#000000', label: 'Black' },
-  { value: '#FFFFFF', label: 'White' },
+  { value: '#FF4842', label: '빨간색' },
+  { value: '#1890FF', label: '파란색' },
+  { value: '#FFC0CB', label: '분홍색' },
+  { value: '#00AB55', label: '초록색' },
+  { value: '#FFC107', label: '노란색' },
+  { value: '#7F00FF', label: '보라색' },
+  { value: '#000000', label: '검은색' },
+  { value: '#FFFFFF', label: '흰색' },
 ];
+
 
 export const PRODUCT_SIZE_OPTIONS = [
   { value: '7', label: '7' },
@@ -63,7 +64,7 @@ export const PRODUCT_SORT_OPTIONS = [
 ];
 
 export const PRODUCT_CATEGORY_GROUP_OPTIONS = [
-  { group: 'Clothing', classify: ['Shirts', 'T-shirts', 'Jeans', 'Leather', 'Accessories'] },
-  { group: 'Tailored', classify: ['Suits', 'Blazers', 'Trousers', 'Waistcoats', 'Apparel'] },
-  { group: 'Accessories', classify: ['Shoes', 'Backpacks and bags', 'Bracelets', 'Face masks'] },
+  { group: '의류', classify: ['셔츠', '티셔츠', '청바지', '가죽', '액세서리'] },
+  { group: '맞춤복', classify: ['정장', '블레이저', '바지', '조끼', '의류'] },
+  { group: '액세서리', classify: ['신발', '백팩 및 가방', '팔찌', '마스크'] },
 ];

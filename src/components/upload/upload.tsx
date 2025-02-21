@@ -52,8 +52,8 @@ export function Upload({
         {(onRemoveAll || onUpload) && (
           <Box sx={{ gap: 1.5, display: 'flex', justifyContent: 'flex-end' }}>
             {onRemoveAll && (
-              <Button color="inherit" variant="outlined" size="small" onClick={onRemoveAll}>
-                Remove all
+              <Button color="error" variant="outlined" size="small" onClick={onRemoveAll}>
+                전체삭제
               </Button>
             )}
 
@@ -64,7 +64,7 @@ export function Upload({
                 onClick={onUpload}
                 startIcon={<Iconify icon="eva:cloud-upload-fill" />}
               >
-                Upload
+                업로드
               </Button>
             )}
           </Box>

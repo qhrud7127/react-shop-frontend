@@ -36,7 +36,7 @@ export const Editor = forwardRef<HTMLDivElement, EditorProps>((props, ref) => {
     editable = true,
     fullItem = false,
     value: content = '',
-    placeholder = 'Write something awesome...',
+    placeholder = "내용을 작성하세요...",
     ...other
   } = props;
 

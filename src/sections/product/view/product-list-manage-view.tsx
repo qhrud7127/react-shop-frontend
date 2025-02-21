@@ -241,7 +241,7 @@ export function ProductListManageView() {
         sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}
       >
         <CustomBreadcrumbs
-          heading="List"
+          heading="상품 관리"
           links={[
             { name: '홈', href: paths.dashboard.root },
             { name: '상품', href: paths.product.root },
