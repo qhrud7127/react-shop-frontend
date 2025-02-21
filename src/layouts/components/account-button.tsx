@@ -6,23 +6,33 @@ import { Menu } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import MenuItem from '@mui/material/MenuItem';
 import IconButton from '@mui/material/IconButton';
-import {Logout, Person} from '@mui/icons-material';
+import { Logout, Person } from '@mui/icons-material';
 
 import { varTap, varHover, transitionTap } from 'src/components/animate';
 
+import { paths } from '../../routes/paths';
+import { useRouter } from '../../routes/hooks';
 import { Iconify } from '../../components/iconify';
 
 // ----------------------------------------------------------------------
 
 export function AccountButton() {
   const [anchorEl, setAnchorEl] = useState<any>(null);
+  const router = useRouter();
   const open = Boolean(anchorEl);
+
   const handleClick = (event: any) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const openOrderList = () => {
+    router.push(paths.product.order.list);
+  };
+
   return (
     <Box>
       <IconButton
@@ -72,7 +82,7 @@ export function AccountButton() {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={openOrderList}>
           <Person fontSize="small" sx={{ marginRight: '5px' }} />
           마이페이지
         </MenuItem>

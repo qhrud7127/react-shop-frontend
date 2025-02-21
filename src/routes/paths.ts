@@ -50,10 +50,9 @@ export const paths = {
     list: `${ROOTS.PRODUCT}/list`,
     details: (id: string) => `${ROOTS.PRODUCT}/detail/${id}`,
     checkout: `${ROOTS.PRODUCT}/checkout`,
-    order: (id: string) => `${ROOTS.PRODUCT}/order/${id}`,
-    group: {
-      root: `${ROOTS.DASHBOARD}/group`,
-      five: `${ROOTS.DASHBOARD}/group/five`,
+    order: {
+      detail: (id: string) => `${ROOTS.PRODUCT}/order/detail/${id}`,
+      list: `${ROOTS.PRODUCT}/order/list`,
       six: `${ROOTS.DASHBOARD}/group/six`,
     },
   },

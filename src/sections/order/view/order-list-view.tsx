@@ -255,7 +255,7 @@ export const OrderListView = () => {
                         selected={table.selected.includes(row.id)}
                         onSelectRow={() => table.onSelectRow(row.id)}
                         onDeleteRow={() => handleDeleteRow(row.id)}
-                        detailsHref={paths.product.order(row.id)}
+                        detailsHref={paths.product.order.detail(row.id)}
                       />
                     ))}
 

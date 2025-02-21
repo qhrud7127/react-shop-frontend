@@ -47,7 +47,7 @@ export function CheckoutOrderComplete({ onResetCart, ...other }: Props) {
 
         <Typography>
           고객님의 주문번호는
-          <Link sx={{ px: 1 }} href={paths.product.order(orderId)}>
+          <Link sx={{ px: 1 }} href={paths.product.order.detail(orderId)}>
             {_mock.id(1)}
           </Link>
           입니다.
@@ -74,7 +74,7 @@ export function CheckoutOrderComplete({ onResetCart, ...other }: Props) {
           </Button>
           <Button
             component={RouterLink}
-            href={paths.product.order(orderId)}
+            href={paths.product.order.detail(orderId)}
             size="large"
             variant="contained"
             onClick={onResetCart}

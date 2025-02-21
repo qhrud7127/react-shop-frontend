@@ -52,7 +52,7 @@ export const dashboardRoutes: RouteObject[] = [
       { path: 'list', element: <ProductListPage /> },
       { path: 'detail/:id', element: <ProductDetailPage /> },
       { path: 'checkout', element: <ProductCheckoutPage /> },
-      { path: 'order/:id', element: <OrderDetailPage /> },
+      { path: 'order/detail/:id', element: <OrderDetailPage /> },
       { path: 'order/list', element: <OrderListPage /> },
       /* {
         path: 'group',
