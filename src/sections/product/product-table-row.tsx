@@ -58,7 +58,7 @@ export function RenderCellStock({ params }: ParamsProps) {
         sx={{ mb: 1, height: 6, width: 80 }}
       />
       {PRODUCT_STOCK_OPTIONS.find(e => e.value === params.row.inventoryType)?.label}
-      &nbsp; {!!params.row.available && params.row.available}
+      {!!params.row.available && (`: ${params.row.available}`)}
     </Box>
   );
 }

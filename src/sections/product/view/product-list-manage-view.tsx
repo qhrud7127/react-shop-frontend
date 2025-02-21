@@ -143,13 +143,13 @@ export function ProductListManageView() {
     {
       field: 'createdAt',
       headerName: '등록일',
-      width: 160,
+      width: 200,
       renderCell: (params) => <RenderCellCreatedAt params={params} />,
     },
     {
       field: 'inventoryType',
       headerName: '재고',
-      width: 160,
+      width: 200,
       type: 'singleSelect',
       valueOptions: PRODUCT_STOCK_OPTIONS,
       renderCell: (params) => <RenderCellStock params={params} />,
@@ -164,7 +164,7 @@ export function ProductListManageView() {
     {
       field: 'publish',
       headerName: '게시상태',
-      width: 110,
+      width: 160,
       type: 'singleSelect',
       editable: true,
       valueOptions: PUBLISH_OPTIONS,
