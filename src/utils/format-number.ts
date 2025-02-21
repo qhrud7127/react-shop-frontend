@@ -97,8 +97,6 @@ export function fLocaleNumber(inputValue: InputNumberValue, options?: Options) {
   const number = processInput(inputValue);
   if (number === null) return '';
 
-  console.log(number.toLocaleString(locale.code));
-
   return number.toLocaleString(locale.code);
 }
 

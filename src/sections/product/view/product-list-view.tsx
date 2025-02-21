@@ -6,7 +6,6 @@ import { DashboardContent } from 'src/layouts/dashboard';
 
 import { paths } from '../../../routes/paths';
 import { ProductList } from '../product-list';
-import { useRouter } from '../../../routes/hooks';
 import { Iconify } from '../../../components/iconify';
 import { RouterLink } from '../../../routes/components';
 import { useGetProducts } from '../../../action/product';
@@ -22,13 +21,8 @@ type Props = {
 export function ProductListView({ title = '' }: Props) {
   const { products, productsLoading } = useGetProducts();
   const productsEmpty = !productsLoading && !products.length;
-  const router = useRouter();
 
   const renderNotFound = () => <EmptyContent filled sx={{ py: 10 }} />;
-
-  const manageProduct = () => {
-    router.push(paths.product.list.manage);
-  };
 
   return (
     <DashboardContent maxWidth="xl">

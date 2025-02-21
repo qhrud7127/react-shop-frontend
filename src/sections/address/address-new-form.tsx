@@ -1,7 +1,6 @@
 import type { IAddressItem } from 'src/types/common';
 
 import { z as zod } from 'zod';
-import {useEffect} from "react";
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { isValidPhoneNumber } from 'react-phone-number-input/input';
@@ -69,11 +68,9 @@ export function AddressNewForm({ open, onClose, onCreate }: Props) {
     formState: { isSubmitting },
   } = methods;
 
-  useEffect(() => {console.log(isSubmitting)})
 
   const onSubmit = handleSubmit(async (data) => {
     try {
-      console.log(data)
       onCreate({
         name: data.name,
         phoneNumber: data.phoneNumber,

@@ -54,11 +54,9 @@ export function createTheme({
     ? updateComponentsWithSettings(components, settingsState)
     : {};
 
-  console.log(settingsState);
 
   // Create and return the final theme
   const theme = createMuiTheme(updatedCore, updatedComponents, localeComponents, themeOverrides);
-  console.log(theme);
 
   return theme;
 }

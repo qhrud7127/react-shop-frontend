@@ -22,10 +22,8 @@ type ProductsData = {
 
 export function useGetProducts() {
   const url = endpoints.product.list;
-  console.log(url);
 
   const { data, isLoading, error, isValidating } = useSWR<ProductsData>(url, fetcher, swrOptions);
-  console.log(data);
 
   return useMemo(
     () => ({
